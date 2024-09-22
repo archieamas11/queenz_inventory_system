@@ -128,7 +128,9 @@ public class display_items {
         String query = "SELECT "
                 + "item_SKU as `SKU`, "
                 + "item_name as `Item name`, "
-                + "item_condition as `Condition`, "
+                + "item_stocks as `Stocks left`, "
+                + "total_sold as `Total Sold`, "
+                + "item_supplier as `Supplier`, "
                 + "item_status as `Status` "
                 + "FROM tbl_items ";
 

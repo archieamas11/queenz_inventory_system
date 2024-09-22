@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 16, 2024 at 10:01 AM
+-- Host: localhost
+-- Generation Time: Sep 22, 2024 at 09:07 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,7 +46,9 @@ CREATE TABLE `tbl_accounts` (
 --
 
 INSERT INTO `tbl_accounts` (`account_id`, `first_name`, `last_name`, `address`, `email_address`, `phone_number`, `username`, `password`, `role`, `date_created`, `status`) VALUES
-(1, 'archie', 'albarico', 'tunghaan, minglanilla, cebu', 'archiealbarico69@gmail.com', '09491853866', 'archieamas11', 'archieamas11', 'admin', '2024-09-16', 'active');
+(1, 'archie', 'albarico', 'tunghaan, minglanilla, cebu', 'archiealbarico69@gmail.com', '09491853866', 'archieamas11', 'archieamas11', 'admin', '2024-09-16', 'active'),
+(2, 'archie', 'albarico', 'tunghaan, minglanilla, cebu', 'archiealbarico69@gmail.com', '09491853866', 'archieamas11', 'archieamas11', 'staff', '2024-09-16', 'active'),
+(3, 'archie', 'albarico', 'purok does, minglanilla', 'archiealbarico00@gmail.com', '09231226478', 'staff', '$2a$10$AG0YzjCo7bI/M/XSX3cEouZt2ot.DEgCo/nn6zInWXWwPb3PBdj8e', 'staff', '2024-09-23', 'active');
 
 -- --------------------------------------------------------
 
@@ -57,10 +59,11 @@ INSERT INTO `tbl_accounts` (`account_id`, `first_name`, `last_name`, `address`, 
 CREATE TABLE `tbl_items` (
   `item_SKU` int(11) NOT NULL,
   `item_name` varchar(100) NOT NULL,
+  `item_description` varchar(600) NOT NULL,
   `item_stocks` int(11) NOT NULL,
   `item_price` int(11) NOT NULL,
   `total_sold` int(11) NOT NULL,
-  `item_type` varchar(100) NOT NULL,
+  `item_condition` varchar(100) NOT NULL,
   `item_category` varchar(100) NOT NULL,
   `item_size` varchar(100) NOT NULL,
   `item_color` varchar(100) NOT NULL,
@@ -75,8 +78,12 @@ CREATE TABLE `tbl_items` (
 -- Dumping data for table `tbl_items`
 --
 
-INSERT INTO `tbl_items` (`item_SKU`, `item_name`, `item_stocks`, `item_price`, `total_sold`, `item_type`, `item_category`, `item_size`, `item_color`, `item_material`, `item_supplier`, `added_by`, `date_added`, `item_status`) VALUES
-(1001, 'Classic T-Shirt	', 2, 2000, 0, 'Apparel', 'Clothing', 'M', 'Blue', 'Cotton', 'Supplier A', 1, '2024-09-16 06:36:06', 'available');
+INSERT INTO `tbl_items` (`item_SKU`, `item_name`, `item_description`, `item_stocks`, `item_price`, `total_sold`, `item_condition`, `item_category`, `item_size`, `item_color`, `item_material`, `item_supplier`, `added_by`, `date_added`, `item_status`) VALUES
+(1001, 'Classic T-Shirt	', 'Good', 0, 2000, 4, 'prelove', 'Casual', 'M', 'Blue', '100% Cotton', 'A', 1, '2024-09-22 16:25:17', 'soldout'),
+(1003, '123', 'Good', 123, 123, 0, 'new', 'Formal', 'L', 'Yellow', 'Polyester blend', 'B', 1, '2024-09-22 15:21:55', 'archived'),
+(1004, '435', 'Bad', 435435, 435, 0, 'new', 'Activewear', 'XXL', 'Green', 'Leather', 'C', 1, '2024-09-22 15:21:58', 'archived'),
+(1005, '3242', 'Nice', 228, 234, 6, 'false', 'Casual', 'M', 'Black', '100% Cotton', 'D', 1, '2024-09-22 17:46:06', 'available'),
+(1006, '34', 'Yey', 124, 34, 0, 'new', 'Formal', 'L', 'Orange', 'Polyester blend', 'A', 1, '2024-09-22 15:22:08', 'soldout');
 
 -- --------------------------------------------------------
 
@@ -91,6 +98,18 @@ CREATE TABLE `tbl_logs` (
   `logs_details` varchar(600) NOT NULL,
   `logs_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_logs`
+--
+
+INSERT INTO `tbl_logs` (`logs_id`, `account_id`, `logs_action`, `logs_details`, `logs_timestamp`) VALUES
+(1, 1, 'add item', 'admin 1 Successfully added a new item!', '2024-09-21 20:39:42'),
+(2, 1, 'Restored', 'admin 1 successfully Restored an item with SKU number 1003!', '2024-09-22 07:26:02'),
+(3, 1, 'Restored', 'admin 1 successfully Restored an item with SKU number 1005!', '2024-09-22 15:17:27'),
+(4, 1, 'Restored', 'admin 1 successfully Restored an item with SKU number 1005!', '2024-09-22 15:19:08'),
+(5, 1, 'edit item', 'admin 1 successfully edited item 1005!', '2024-09-22 15:39:35'),
+(7, 3, 'Logged in', 'Account 3 successfully logged in!', '2024-09-22 17:40:41');
 
 --
 -- Indexes for dumped tables
@@ -124,19 +143,19 @@ ALTER TABLE `tbl_logs`
 -- AUTO_INCREMENT for table `tbl_accounts`
 --
 ALTER TABLE `tbl_accounts`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_items`
 --
 ALTER TABLE `tbl_items`
-  MODIFY `item_SKU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `item_SKU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
 
 --
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
