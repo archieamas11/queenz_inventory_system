@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -65,8 +66,11 @@ public class display_items {
             };
 
             // Apply the renderer to the Status column
-            table.getColumnModel().getColumn(table.getColumnModel().getColumnIndex("Status"))
-                    .setCellRenderer(statusRenderer);
+            //table.getColumnModel().getColumn(table.getColumnModel().getColumnIndex("Status")).setCellRenderer(statusRenderer);
+            int statusColumnIndex = table.getColumnModel().getColumnIndex("Status");
+            if (statusColumnIndex != -1) {
+                table.getColumnModel().getColumn(statusColumnIndex).setCellRenderer(statusRenderer);
+            }
 
         } catch (SQLException ex) {
             System.err.println("SQL Error while executing query: " + query);
@@ -186,6 +190,42 @@ public class display_items {
             }
         } catch (SQLException ex) {
             System.out.println("Error while updating total items: " + ex.getMessage());
+        }
+    }
+
+    public static void logs(JTable table) {
+        try {
+            String query = "SELECT "
+                    + "l.logs_id as `Logs ID`, "
+                    + "a.first_name as `Maker`, "
+                    + "l.logs_action as `Action`, "
+                    + "l.logs_details as `Details`, "
+                    + "l.logs_timestamp as `Timestamp` "
+                    + "FROM tbl_logs l "
+                    + "JOIN tbl_accounts a ON a.account_id = l.account_id";
+
+            // Execute query and display results
+            display_query(table, query);
+
+            // Check if the table has columns before setting preferred widths
+            if (table.getColumnCount() > 0) {
+                TableColumn column;
+                column = table.getColumnModel().getColumn(0);
+                column.setPreferredWidth(20);
+                column = table.getColumnModel().getColumn(1);
+                column.setPreferredWidth(20);
+                column = table.getColumnModel().getColumn(2);
+                column.setPreferredWidth(100);
+                column = table.getColumnModel().getColumn(3);
+                column.setPreferredWidth(400);
+                column = table.getColumnModel().getColumn(4);
+                column.setPreferredWidth(100);
+            } else {
+                System.out.println("No columns available to set widths.");
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Errors: " + ex.getMessage());
         }
     }
 

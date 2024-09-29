@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -88,9 +89,10 @@ public class admin_dashboard extends javax.swing.JFrame {
         archive_btn = new javax.swing.JToggleButton();
         logout_btn = new javax.swing.JToggleButton();
         date_today = new javax.swing.JLabel();
-        logs_btn = new javax.swing.JToggleButton();
         profile_icon1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        accounts_btn = new javax.swing.JToggleButton();
+        logs_btn = new javax.swing.JButton();
         tabs = new javax.swing.JTabbedPane();
         dashboardddddddddddddddddddd = new javax.swing.JPanel();
         dashboard_table_container = new javax.swing.JPanel();
@@ -258,7 +260,7 @@ public class admin_dashboard extends javax.swing.JFrame {
                 dashboard_btnActionPerformed(evt);
             }
         });
-        top_navbar.add(dashboard_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 120, 30));
+        top_navbar.add(dashboard_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 120, 30));
 
         manage_btn.setBackground(new java.awt.Color(255, 229, 246));
         manage_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -272,7 +274,7 @@ public class admin_dashboard extends javax.swing.JFrame {
                 manage_btnActionPerformed(evt);
             }
         });
-        top_navbar.add(manage_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 110, 30));
+        top_navbar.add(manage_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 110, 30));
 
         archive_btn.setBackground(new java.awt.Color(255, 229, 246));
         archive_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -286,7 +288,7 @@ public class admin_dashboard extends javax.swing.JFrame {
                 archive_btnActionPerformed(evt);
             }
         });
-        top_navbar.add(archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 110, 30));
+        top_navbar.add(archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 110, 30));
 
         logout_btn.setBackground(new java.awt.Color(255, 229, 246));
         logout_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -300,22 +302,13 @@ public class admin_dashboard extends javax.swing.JFrame {
                 logout_btnActionPerformed(evt);
             }
         });
-        top_navbar.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, 100, 30));
+        top_navbar.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, 100, 30));
 
         date_today.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         date_today.setForeground(new java.awt.Color(51, 51, 51));
         date_today.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         date_today.setText("Date");
-        top_navbar.add(date_today, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, 250, 30));
-
-        logs_btn.setBackground(new java.awt.Color(255, 229, 246));
-        logs_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        logs_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-logs.png"))); // NOI18N
-        logs_btn.setText(" Logs");
-        logs_btn.setBorder(null);
-        logs_btn.setBorderPainted(false);
-        logs_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-logs-selected.png"))); // NOI18N
-        top_navbar.add(logs_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 20, 90, 30));
+        top_navbar.add(date_today, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, 210, 30));
 
         profile_icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         profile_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-profile.png"))); // NOI18N
@@ -323,6 +316,34 @@ public class admin_dashboard extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         top_navbar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 60));
+
+        accounts_btn.setBackground(new java.awt.Color(255, 229, 246));
+        accounts_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        accounts_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-accounts.png"))); // NOI18N
+        accounts_btn.setText(" Accounts");
+        accounts_btn.setBorder(null);
+        accounts_btn.setBorderPainted(false);
+        accounts_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-accounts-selected.png"))); // NOI18N
+        accounts_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accounts_btnActionPerformed(evt);
+            }
+        });
+        top_navbar.add(accounts_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 110, 30));
+        UXmethods.RoundBorders.setArcStyle(accounts_btn, 30);
+
+        logs_btn.setBackground(new java.awt.Color(255, 229, 246));
+        logs_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        logs_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-logs.png"))); // NOI18N
+        logs_btn.setText(" Logs");
+        logs_btn.setBorderPainted(false);
+        logs_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-logs-selected.png"))); // NOI18N
+        logs_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logs_btnActionPerformed(evt);
+            }
+        });
+        top_navbar.add(logs_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 20, 90, 30));
 
         parent_of_the_parent.add(top_navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1380, 70));
 
@@ -1652,11 +1673,11 @@ public class admin_dashboard extends javax.swing.JFrame {
     }
 
     private void archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archive_btnActionPerformed
-        handleButtonSelection(4, archive_btn, dashboard_btn, manage_btn);
+        handleButtonSelection(4, archive_btn, dashboard_btn, manage_btn, accounts_btn);
     }//GEN-LAST:event_archive_btnActionPerformed
 
     private void dashboard_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboard_btnActionPerformed
-        handleButtonSelection(0, dashboard_btn, manage_btn, archive_btn);
+        handleButtonSelection(0, dashboard_btn, manage_btn, archive_btn, accounts_btn);
         displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
     }//GEN-LAST:event_dashboard_btnActionPerformed
 
@@ -2055,7 +2076,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_add_item_skuActionPerformed
 
     private void manage_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_btnActionPerformed
-        handleButtonSelection(1, manage_btn, dashboard_btn, archive_btn);
+        handleButtonSelection(1, manage_btn, dashboard_btn, archive_btn, accounts_btn);
         updateStatus();
     }//GEN-LAST:event_manage_btnActionPerformed
 
@@ -2072,6 +2093,16 @@ public class admin_dashboard extends javax.swing.JFrame {
         actionLogs.recordAdminLogs(admin_id, action, details);
     }//GEN-LAST:event_logout_btnActionPerformed
 
+    private void accounts_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accounts_btnActionPerformed
+        handleButtonSelection(-0, accounts_btn, dashboard_btn, manage_btn, archive_btn);
+    }//GEN-LAST:event_accounts_btnActionPerformed
+
+    private void logs_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logs_btnActionPerformed
+        logs_dashboard redirect = new logs_dashboard();
+        redirect.setVisible(true);
+        redirect.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_logs_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2087,6 +2118,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton accounts_btn;
     private javax.swing.JButton add_btn;
     private javax.swing.JComboBox<String> add_item_category;
     private javax.swing.JComboBox<String> add_item_color_option;
@@ -2214,7 +2246,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JToggleButton logout_btn;
-    private javax.swing.JToggleButton logs_btn;
+    private javax.swing.JButton logs_btn;
     private javax.swing.JToggleButton manage_btn;
     private javax.swing.JTable manage_table;
     private javax.swing.JPanel manage_table_container;
