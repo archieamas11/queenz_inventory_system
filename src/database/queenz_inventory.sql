@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2024 at 09:07 PM
+-- Generation Time: Sep 29, 2024 at 07:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,7 +48,7 @@ CREATE TABLE `tbl_accounts` (
 INSERT INTO `tbl_accounts` (`account_id`, `first_name`, `last_name`, `address`, `email_address`, `phone_number`, `username`, `password`, `role`, `date_created`, `status`) VALUES
 (1, 'archie', 'albarico', 'tunghaan, minglanilla, cebu', 'archiealbarico69@gmail.com', '09491853866', 'archieamas11', 'archieamas11', 'admin', '2024-09-16', 'active'),
 (2, 'archie', 'albarico', 'tunghaan, minglanilla, cebu', 'archiealbarico69@gmail.com', '09491853866', 'archieamas11', 'archieamas11', 'staff', '2024-09-16', 'active'),
-(3, 'archie', 'albarico', 'purok does, minglanilla', 'archiealbarico00@gmail.com', '09231226478', 'staff', '$2a$10$AG0YzjCo7bI/M/XSX3cEouZt2ot.DEgCo/nn6zInWXWwPb3PBdj8e', 'staff', '2024-09-23', 'active');
+(3, 'archie', 'albarico', 'purok does, minglanilla', 'archiealbarico00@gmail.com', '09231226478', 'staff', '$2a$10$AG0YzjCo7bI/M/XSX3cEouZt2ot.DEgCo/nn6zInWXWwPb3PBdj8e', 'admin', '2024-09-23', 'active');
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,10 @@ INSERT INTO `tbl_logs` (`logs_id`, `account_id`, `logs_action`, `logs_details`, 
 (3, 1, 'Restored', 'admin 1 successfully Restored an item with SKU number 1005!', '2024-09-22 15:17:27'),
 (4, 1, 'Restored', 'admin 1 successfully Restored an item with SKU number 1005!', '2024-09-22 15:19:08'),
 (5, 1, 'edit item', 'admin 1 successfully edited item 1005!', '2024-09-22 15:39:35'),
-(7, 3, 'Logged in', 'Account 3 successfully logged in!', '2024-09-22 17:40:41');
+(7, 3, 'Logged in', 'Account 3 successfully logged in!', '2024-09-22 17:40:41'),
+(10, 3, 'Logged in', 'Account 3 successfully logged in!', '2024-09-29 16:24:08'),
+(11, 3, 'Logged in', 'Account 3 successfully logged in!', '2024-09-29 16:25:38'),
+(12, 3, 'Logged in', 'Account 3 successfully logged in!', '2024-09-29 16:32:17');
 
 --
 -- Indexes for dumped tables
@@ -155,7 +158,7 @@ ALTER TABLE `tbl_items`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
