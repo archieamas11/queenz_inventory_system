@@ -48,4 +48,33 @@ public class update_item {
             e.printStackTrace();
         }
     }
+
+    public static void accounts_status(String status, int id, JTable table, int selected_account) {
+        try {
+            databaseConnector dbc = new databaseConnector();
+            String sql = "UPDATE tbl_accounts SET `status`=? WHERE `account_id`=?";
+
+            try (PreparedStatement pst = dbc.getConnection().prepareStatement(sql)) {
+                pst.setString(1, status);
+                pst.setInt(2, selected_account);
+
+                int rowsUpdated = pst.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    Notifications.getInstance().show(Notifications.Type.SUCCESS, "Successfully updated account information");
+                    display_items.accounts(table);
+
+                    String action = "Update account";
+                    String details = "admin " + id + " successfully update accounts " + selected_account + "!";
+                    actionLogs.recordAdminLogs(id, action, details);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to update item!");
+                }
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "SQL Error updating data: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

@@ -56,6 +56,17 @@ public class admin_dashboard extends javax.swing.JFrame {
         UXmethods.RoundBorders.setArcStyle(archive_btn, 30);
         UXmethods.RoundBorders.setArcStyle(logout_btn, 30);
         UXmethods.RoundBorders.setArcStyle(logs_btn, 30);
+
+        display_items.accounts(accounts_table);
+        display_items.best_item(popular_table);
+        display_items.not_best_item(not_popular_table);
+        display_items.total_sold(total_sold);
+        display_items.total_sales(total_profit);
+        display_items.total_expense(expense_total);
+        display_items.precentage_bar_for_total_profit(profit_percentage_bar, profit_percentage);
+        display_items.percentage_bar_for_total_expense(expense_percentage_bar, expense_percentage);
+        display_items.percentage_bar_for_total_items(jProgressBar2, sds);
+
         updateStatus();
     }
 
@@ -95,13 +106,48 @@ public class admin_dashboard extends javax.swing.JFrame {
         logs_btn = new javax.swing.JButton();
         tabs = new javax.swing.JTabbedPane();
         dashboardddddddddddddddddddd = new javax.swing.JPanel();
-        dashboard_table_container = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
         dashboard_table = new javax.swing.JTable();
-        username = new javax.swing.JLabel();
-        welcome4 = new javax.swing.JLabel();
-        find_btn_dashboard = new javax.swing.JButton();
-        search_btn_dashboard = new javax.swing.JTextField();
+        search_btn_archive2 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        expense_total = new javax.swing.JLabel();
+        expense_percentage = new javax.swing.JLabel();
+        expense_percentage_bar = new javax.swing.JProgressBar();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        total_sold = new javax.swing.JLabel();
+        sds = new javax.swing.JLabel();
+        jProgressBar2 = new javax.swing.JProgressBar();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        total_profit = new javax.swing.JLabel();
+        profit_percentage = new javax.swing.JLabel();
+        profit_percentage_bar = new javax.swing.JProgressBar();
+        jLabel37 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        not_popular_table = new javax.swing.JTable();
+        jLabel61 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        popular_table = new javax.swing.JTable();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
         manageeeeeeeeeeeeeeeeeeeee = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -235,6 +281,15 @@ public class admin_dashboard extends javax.swing.JFrame {
         find_btn_archive = new javax.swing.JButton();
         restore_archive_btn = new javax.swing.JButton();
         discontinue_archive_btn = new javax.swing.JButton();
+        acountssssssssssssssssssssssssss = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        search_btn_archive1 = new javax.swing.JTextField();
+        find_btn_archive1 = new javax.swing.JButton();
+        archive_table_container1 = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        accounts_table = new javax.swing.JTable();
+        discontinue_archive_btn1 = new javax.swing.JButton();
+        restore_archive_btn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -353,13 +408,13 @@ public class admin_dashboard extends javax.swing.JFrame {
         dashboardddddddddddddddddddd.setBackground(new java.awt.Color(255, 255, 255));
         dashboardddddddddddddddddddd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dashboard_table_container.setBackground(new java.awt.Color(249, 249, 249));
-        dashboard_table_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         dashboard_table.setAutoCreateRowSorter(true);
-        dashboard_table.setBackground(new java.awt.Color(249, 249, 249));
+        dashboard_table.setBackground(new java.awt.Color(235, 235, 235));
         dashboard_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         dashboard_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -374,49 +429,241 @@ public class admin_dashboard extends javax.swing.JFrame {
         dashboard_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
         dashboard_table.getTableHeader().setResizingAllowed(false);
         dashboard_table.getTableHeader().setReorderingAllowed(false);
-        jScrollPane5.setViewportView(dashboard_table);
-
-        dashboard_table_container.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1340, 720));
-
-        username.setBackground(new java.awt.Color(246, 187, 223));
-        username.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
-        username.setForeground(new java.awt.Color(246, 187, 223));
-        username.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        username.setText("Archie!");
-        dashboard_table_container.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 160, 40));
-
-        welcome4.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
-        welcome4.setForeground(new java.awt.Color(51, 51, 51));
-        welcome4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        welcome4.setText("Hello, ");
-        dashboard_table_container.add(welcome4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 40));
-
-        find_btn_dashboard.setBackground(new java.awt.Color(246, 187, 223));
-        find_btn_dashboard.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        find_btn_dashboard.setText("Find");
-        find_btn_dashboard.setBorder(null);
-        find_btn_dashboard.setBorderPainted(false);
-        find_btn_dashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                find_btn_dashboardActionPerformed(evt);
+        dashboard_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboard_tableMouseClicked(evt);
             }
         });
-        dashboard_table_container.add(find_btn_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 20, 60, 40));
-        UXmethods.RoundBorders.setArcStyle(find_btn_dashboard, 30);
+        jScrollPane8.setViewportView(dashboard_table);
 
-        search_btn_dashboard.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        search_btn_dashboard.setSelectionColor(new java.awt.Color(255, 229, 246));
-        search_btn_dashboard.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 390, 670));
+
+        search_btn_archive2.setSelectionColor(new java.awt.Color(255, 229, 246));
+        search_btn_archive2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                search_btn_dashboardKeyReleased(evt);
+                search_btn_archive2KeyReleased(evt);
             }
         });
-        dashboard_table_container.add(search_btn_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 300, 40));
-        flatlaftTable.searchBar(search_btn_dashboard);
-        UXmethods.RoundBorders.setArcStyle(search_btn_dashboard, 30);
+        jPanel1.add(search_btn_archive2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 180, 30));
+        flatlaftTable.searchBar(search_btn_archive2);
+        UXmethods.RoundBorders.setArcStyle(search_btn_archive2, 30);
 
-        dashboardddddddddddddddddddd.add(dashboard_table_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1340, 820));
-        UXmethods.RoundBorders.setArcStyle(dashboard_table_container, 20);
+        jLabel36.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel36.setText("STOCK LEVELS");
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 30));
+
+        dashboardddddddddddddddddddd.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 430, 750));
+        UXmethods.RoundBorders.setArcStyle(jPanel1, 20);
+
+        jLabel35.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jLabel35.setText("Hello, Admin!");
+        dashboardddddddddddddddddddd.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 430, 70));
+
+        jPanel5.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel34.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Total Expense");
+        jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 180, 30));
+
+        jPanel19.setBackground(new java.awt.Color(235, 235, 235));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        expense_total.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        expense_total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        expense_total.setText("₱20312");
+        jPanel19.add(expense_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 20));
+
+        jPanel4.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 160, 40));
+        UXmethods.RoundBorders.setArcStyle(jPanel19, 10);
+
+        expense_percentage.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        expense_percentage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        expense_percentage.setText("60%");
+        jPanel4.add(expense_percentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 30));
+        jPanel4.add(expense_percentage_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 20));
+
+        jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 180, 210));
+        UXmethods.RoundBorders.setArcStyle(jPanel4, 20);
+
+        jPanel7.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel40.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setText("Total item Sold");
+        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 180, 30));
+
+        jPanel17.setBackground(new java.awt.Color(235, 235, 235));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        total_sold.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        total_sold.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        total_sold.setText("₱20312");
+        jPanel17.add(total_sold, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 20));
+
+        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 160, 40));
+        UXmethods.RoundBorders.setArcStyle(jPanel17, 10);
+
+        sds.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        sds.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sds.setText("60%");
+        jPanel7.add(sds, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 30));
+        jPanel7.add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 20));
+
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 180, 210));
+        UXmethods.RoundBorders.setArcStyle(jPanel7, 20);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel39.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("Total Profit");
+        jPanel9.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 180, 30));
+
+        jPanel18.setBackground(new java.awt.Color(235, 235, 235));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        total_profit.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        total_profit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        total_profit.setText("₱20312");
+        jPanel18.add(total_profit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 20));
+
+        jPanel9.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 160, 40));
+        UXmethods.RoundBorders.setArcStyle(jPanel18, 10);
+
+        profit_percentage.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        profit_percentage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        profit_percentage.setText("60%");
+        jPanel9.add(profit_percentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 180, 30));
+        jPanel9.add(profit_percentage_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 20));
+
+        jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 180, 210));
+        UXmethods.RoundBorders.setArcStyle(jPanel9, 20);
+
+        jLabel37.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel37.setText("MONTLY REPORT");
+        jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 40));
+
+        jButton1.setText("View more");
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 13, 110, 30));
+        UXmethods.RoundBorders.setArcStyle(jPanel1, 20);
+
+        dashboardddddddddddddddddddd.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 620, 290));
+        UXmethods.RoundBorders.setArcStyle(jPanel5, 20);
+
+        jPanel6.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel22.setBackground(new java.awt.Color(235, 235, 235));
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel60.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel60.setText("Empty");
+        jPanel22.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 40));
+
+        jPanel6.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 670));
+
+        jLabel63.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel63.setText("Notifications");
+        jPanel6.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 40));
+
+        dashboardddddddddddddddddddd.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 160, 240, 750));
+        UXmethods.RoundBorders.setArcStyle(jPanel6, 20);
+
+        jPanel10.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        dashboardddddddddddddddddddd.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 160, 240, 750));
+
+        jPanel13.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel62.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel62.setText("Less Popular Items");
+        jPanel13.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 30));
+
+        jScrollPane14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        not_popular_table.setAutoCreateRowSorter(true);
+        not_popular_table.setBackground(new java.awt.Color(235, 235, 235));
+        not_popular_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        not_popular_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        not_popular_table.setFocusable(false);
+        not_popular_table.setGridColor(new java.awt.Color(0, 0, 0));
+        not_popular_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
+        not_popular_table.getTableHeader().setResizingAllowed(false);
+        not_popular_table.getTableHeader().setReorderingAllowed(false);
+        not_popular_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                not_popular_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane14.setViewportView(not_popular_table);
+
+        jPanel13.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, 360));
+
+        jLabel61.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel61.setText("(Based on total sales)");
+        jPanel13.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 150, 30));
+
+        dashboardddddddddddddddddddd.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 470, 300, 440));
+        UXmethods.RoundBorders.setArcStyle(jPanel13, 20);
+
+        jPanel14.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        popular_table.setAutoCreateRowSorter(true);
+        popular_table.setBackground(new java.awt.Color(235, 235, 235));
+        popular_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        popular_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        popular_table.setFocusable(false);
+        popular_table.setGridColor(new java.awt.Color(0, 0, 0));
+        popular_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
+        popular_table.getTableHeader().setResizingAllowed(false);
+        popular_table.getTableHeader().setReorderingAllowed(false);
+        popular_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                popular_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(popular_table);
+
+        jPanel14.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, 360));
+
+        jLabel64.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel64.setText("Popular Items");
+        jPanel14.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 30));
+
+        jLabel65.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel65.setText("(Based on total sales)");
+        jPanel14.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 150, 30));
+
+        dashboardddddddddddddddddddd.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 470, 300, 440));
+        UXmethods.RoundBorders.setArcStyle(jPanel14, 20);
 
         tabs.addTab("dashboard", dashboardddddddddddddddddddd);
 
@@ -1482,7 +1729,98 @@ public class admin_dashboard extends javax.swing.JFrame {
 
         tabs.addTab("archived_items", archiveeeeeeeeeeeeeeeeeeeeeeeee);
 
-        parent_of_the_parent.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 1020));
+        acountssssssssssssssssssssssssss.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        search_btn_archive1.setSelectionColor(new java.awt.Color(255, 229, 246));
+        search_btn_archive1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search_btn_archive1KeyReleased(evt);
+            }
+        });
+        jPanel3.add(search_btn_archive1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 300, 40));
+        flatlaftTable.searchBar(search_btn_archive1);
+        UXmethods.RoundBorders.setArcStyle(search_btn_archive1, 30);
+
+        find_btn_archive1.setBackground(new java.awt.Color(246, 187, 223));
+        find_btn_archive1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        find_btn_archive1.setText("Find");
+        find_btn_archive1.setBorder(null);
+        find_btn_archive1.setBorderPainted(false);
+        find_btn_archive1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_btn_archive1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(find_btn_archive1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 60, 40));
+        UXmethods.RoundBorders.setArcStyle(find_btn_archive1, 30);
+
+        archive_table_container1.setBackground(new java.awt.Color(249, 249, 249));
+        archive_table_container1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        accounts_table.setAutoCreateRowSorter(true);
+        accounts_table.setBackground(new java.awt.Color(249, 249, 249));
+        accounts_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        accounts_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        accounts_table.setFocusable(false);
+        accounts_table.setGridColor(new java.awt.Color(0, 0, 0));
+        accounts_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
+        accounts_table.getTableHeader().setResizingAllowed(false);
+        accounts_table.getTableHeader().setReorderingAllowed(false);
+        accounts_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accounts_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane13.setViewportView(accounts_table);
+
+        archive_table_container1.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1340, 700));
+
+        jPanel3.add(archive_table_container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 1340, 740));
+        UXmethods.RoundBorders.setArcStyle(archive_table_container, 20);
+
+        discontinue_archive_btn1.setBackground(new java.awt.Color(255, 153, 153));
+        discontinue_archive_btn1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        discontinue_archive_btn1.setText("Decline");
+        discontinue_archive_btn1.setBorder(null);
+        discontinue_archive_btn1.setBorderPainted(false);
+        discontinue_archive_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discontinue_archive_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(discontinue_archive_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 160, 100, 40));
+        UXmethods.RoundBorders.setArcStyle(discontinue_archive_btn1, 30);
+
+        restore_archive_btn1.setBackground(new java.awt.Color(153, 255, 153));
+        restore_archive_btn1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        restore_archive_btn1.setText("Accept");
+        restore_archive_btn1.setBorder(null);
+        restore_archive_btn1.setBorderPainted(false);
+        restore_archive_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restore_archive_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(restore_archive_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 160, 100, 40));
+        UXmethods.RoundBorders.setArcStyle(restore_archive_btn1, 30);
+
+        acountssssssssssssssssssssssssss.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
+
+        tabs.addTab("accouts_tab", acountssssssssssssssssssssssssss);
+
+        parent_of_the_parent.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
 
         getContentPane().add(parent_of_the_parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 976));
 
@@ -1500,14 +1838,6 @@ public class admin_dashboard extends javax.swing.JFrame {
         update_item.status("discontinue", "Successfully discontinued Item!", "discontinued", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
         updateStatus();
     }//GEN-LAST:event_discontinue_archive_btnActionPerformed
-
-    private void search_btn_dashboardKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_btn_dashboardKeyReleased
-        search.searchResult(dashboard_table, search_btn_dashboard);
-    }//GEN-LAST:event_search_btn_dashboardKeyReleased
-
-    private void find_btn_dashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_btn_dashboardActionPerformed
-        search.searchResult(dashboard_table, search_btn_dashboard);
-    }//GEN-LAST:event_find_btn_dashboardActionPerformed
 
     private void soldout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soldout_btnActionPerformed
         displayAll(dashboard_table, manage_table, archive_table, total_items, "soldout");
@@ -1619,6 +1949,29 @@ public class admin_dashboard extends javax.swing.JFrame {
 
                 if (rs.next()) {
                     get_item_id = rs.getInt("item_SKU");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error retrieving data: " + e.getMessage());
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    int account_id;
+
+    private void get_account_id(JTable table) {
+        int rowIndex = table.getSelectedRow();
+        if (rowIndex < 0) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Please select and item first!");
+        } else {
+            TableModel model = table.getModel();
+
+            try {
+                databaseConnector dbc = new databaseConnector();
+                ResultSet rs = dbc.getData("SELECT * FROM tbl_accounts WHERE account_id =" + model.getValueAt(rowIndex, 0));
+
+                if (rs.next()) {
+                    account_id = rs.getInt("account_id");
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error retrieving data: " + e.getMessage());
@@ -2094,7 +2447,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_logout_btnActionPerformed
 
     private void accounts_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accounts_btnActionPerformed
-        handleButtonSelection(-0, accounts_btn, dashboard_btn, manage_btn, archive_btn);
+        handleButtonSelection(5, accounts_btn, dashboard_btn, manage_btn, archive_btn);
     }//GEN-LAST:event_accounts_btnActionPerformed
 
     private void logs_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logs_btnActionPerformed
@@ -2102,6 +2455,42 @@ public class admin_dashboard extends javax.swing.JFrame {
         redirect.setVisible(true);
         redirect.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_logs_btnActionPerformed
+
+    private void dashboard_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboard_tableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboard_tableMouseClicked
+
+    private void search_btn_archive1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_btn_archive1KeyReleased
+        search.searchResult(accounts_table, search_btn_archive1);
+    }//GEN-LAST:event_search_btn_archive1KeyReleased
+
+    private void find_btn_archive1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_btn_archive1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_find_btn_archive1ActionPerformed
+
+    private void accounts_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accounts_tableMouseClicked
+        get_account_id(accounts_table);
+    }//GEN-LAST:event_accounts_tableMouseClicked
+
+    private void discontinue_archive_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discontinue_archive_btn1ActionPerformed
+        update_item.accounts_status("decline", admin_id, accounts_table, account_id);
+    }//GEN-LAST:event_discontinue_archive_btn1ActionPerformed
+
+    private void restore_archive_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restore_archive_btn1ActionPerformed
+        update_item.accounts_status("active", admin_id, accounts_table, account_id);
+    }//GEN-LAST:event_restore_archive_btn1ActionPerformed
+
+    private void search_btn_archive2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_btn_archive2KeyReleased
+        search.searchResult(dashboard_table, search_btn_archive2);
+    }//GEN-LAST:event_search_btn_archive2KeyReleased
+
+    private void popular_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_popular_tableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_popular_tableMouseClicked
+
+    private void not_popular_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_not_popular_tableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_not_popular_tableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2119,6 +2508,8 @@ public class admin_dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton accounts_btn;
+    private javax.swing.JTable accounts_table;
+    private javax.swing.JPanel acountssssssssssssssssssssssssss;
     private javax.swing.JButton add_btn;
     private javax.swing.JComboBox<String> add_item_category;
     private javax.swing.JComboBox<String> add_item_color_option;
@@ -2139,6 +2530,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JToggleButton archive_btn;
     private javax.swing.JTable archive_table;
     private javax.swing.JPanel archive_table_container;
+    private javax.swing.JPanel archive_table_container1;
     private javax.swing.JLabel archived;
     private javax.swing.JPanel archiveeeeeeeeeeeeeeeeeeeeeeeee;
     private javax.swing.JComboBox<String> category;
@@ -2147,10 +2539,10 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> color_option;
     private javax.swing.JToggleButton dashboard_btn;
     private javax.swing.JTable dashboard_table;
-    private javax.swing.JPanel dashboard_table_container;
     private javax.swing.JPanel dashboardddddddddddddddddddd;
     private javax.swing.JLabel date_today;
     private javax.swing.JButton discontinue_archive_btn;
+    private javax.swing.JButton discontinue_archive_btn1;
     private javax.swing.JLabel discontinued;
     private javax.swing.JToggleButton discontinued_btn;
     private javax.swing.JButton edit_btn;
@@ -2168,6 +2560,9 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> edit_item_status;
     private javax.swing.JComboBox<String> edit_item_supplier;
     private javax.swing.JPanel edittttttttttttttttttttttttttttt;
+    private javax.swing.JLabel expense_percentage;
+    private javax.swing.JProgressBar expense_percentage_bar;
+    private javax.swing.JLabel expense_total;
     private javax.swing.JPanel filterContainer10;
     private javax.swing.JPanel filterContainer11;
     private javax.swing.JPanel filterContainer12;
@@ -2184,9 +2579,10 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel filterContainer8;
     private javax.swing.JPanel filterContainer9;
     private javax.swing.JButton find_btn_archive;
-    private javax.swing.JButton find_btn_dashboard;
+    private javax.swing.JButton find_btn_archive1;
     private javax.swing.JButton find_btn_manage;
     private javax.swing.JToggleButton items_archive_btn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2214,7 +2610,13 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
@@ -2231,20 +2633,44 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JToggleButton logout_btn;
     private javax.swing.JButton logs_btn;
     private javax.swing.JToggleButton manage_btn;
@@ -2252,15 +2678,22 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel manage_table_container;
     private javax.swing.JPanel manageeeeeeeeeeeeeeeeeeeee;
     private javax.swing.JToggleButton new_btn;
+    private javax.swing.JTable not_popular_table;
     private javax.swing.JPanel parent_of_the_parent;
+    private javax.swing.JTable popular_table;
     private javax.swing.JToggleButton prelove_btn;
     private javax.swing.JLabel profile_icon1;
+    private javax.swing.JLabel profit_percentage;
+    private javax.swing.JProgressBar profit_percentage_bar;
     private javax.swing.JButton reset_btn;
     private javax.swing.JButton restore_archive_btn;
+    private javax.swing.JButton restore_archive_btn1;
     private javax.swing.JButton save_btn_add;
     private javax.swing.JButton save_btn_edit;
+    private javax.swing.JLabel sds;
     private javax.swing.JTextField search_btn_archive;
-    private javax.swing.JTextField search_btn_dashboard;
+    private javax.swing.JTextField search_btn_archive1;
+    private javax.swing.JTextField search_btn_archive2;
     private javax.swing.JTextField search_btn_manage;
     private javax.swing.JComboBox<String> size_option;
     private javax.swing.JLabel soldout;
@@ -2269,7 +2702,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JPanel top_navbar;
     private javax.swing.JLabel total_items;
-    private javax.swing.JLabel username;
-    private javax.swing.JLabel welcome4;
+    private javax.swing.JLabel total_profit;
+    private javax.swing.JLabel total_sold;
     // End of variables declaration//GEN-END:variables
 }

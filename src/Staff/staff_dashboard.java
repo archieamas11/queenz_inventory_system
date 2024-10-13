@@ -107,7 +107,148 @@ public class staff_dashboard extends javax.swing.JFrame {
         staff_table = new javax.swing.JTable();
         call_admin_btn = new javax.swing.JButton();
         confimation = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        total_items1 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        soldout = new javax.swing.JLabel();
+        discontinued1 = new javax.swing.JLabel();
+        all = new javax.swing.JLabel();
+        archived1 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        soldout_btn = new javax.swing.JToggleButton();
+        all_btn = new javax.swing.JToggleButton();
+        discontinued_btn = new javax.swing.JToggleButton();
+        items_archive_btn = new javax.swing.JToggleButton();
+        jLabel34 = new javax.swing.JLabel();
+        new_btn1 = new javax.swing.JToggleButton();
+        jLabel24 = new javax.swing.JLabel();
+        prelove_btn1 = new javax.swing.JToggleButton();
+        filterContainer7 = new javax.swing.JPanel();
+        supplier1 = new javax.swing.JComboBox<>();
+        filterContainer8 = new javax.swing.JPanel();
+        size_option1 = new javax.swing.JComboBox<>();
+        filterContainer9 = new javax.swing.JPanel();
+        color_option1 = new javax.swing.JComboBox<>();
+        filterContainer10 = new javax.swing.JPanel();
+        category1 = new javax.swing.JComboBox<>();
+        reset_btn1 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        manage_table_container1 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        manage_table = new javax.swing.JTable();
+        search_btn_manage1 = new javax.swing.JTextField();
+        find_btn_manage1 = new javax.swing.JButton();
+        add_to_archive_btn = new javax.swing.JButton();
+        edit_btn = new javax.swing.JButton();
+        add_btn = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        filterContainer11 = new javax.swing.JPanel();
+        add_item_supplier = new javax.swing.JComboBox<>();
+        filterContainer12 = new javax.swing.JPanel();
+        add_item_category = new javax.swing.JComboBox<>();
+        filterContainer13 = new javax.swing.JPanel();
+        add_item_color_option = new javax.swing.JComboBox<>();
+        filterContainer14 = new javax.swing.JPanel();
+        add_item_size_option = new javax.swing.JComboBox<>();
+        filterContainer15 = new javax.swing.JPanel();
+        add_item_material = new javax.swing.JComboBox<>();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        add_item_new = new javax.swing.JToggleButton();
+        add_item_prelove = new javax.swing.JToggleButton();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        add_item_description = new javax.swing.JEditorPane();
+        add_item_quantity = new javax.swing.JTextField();
+        add_item_price = new javax.swing.JTextField();
+        add_item_sku = new javax.swing.JTextField();
+        add_item_name = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        clear_btn_add = new javax.swing.JButton();
+        save_btn_add = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        filterContainer16 = new javax.swing.JPanel();
+        edit_item_supplier = new javax.swing.JComboBox<>();
+        filterContainer17 = new javax.swing.JPanel();
+        edit_item_category = new javax.swing.JComboBox<>();
+        filterContainer18 = new javax.swing.JPanel();
+        edit_item_color_option = new javax.swing.JComboBox<>();
+        filterContainer19 = new javax.swing.JPanel();
+        edit_item_size_option = new javax.swing.JComboBox<>();
+        filterContainer20 = new javax.swing.JPanel();
+        edit_item_material = new javax.swing.JComboBox<>();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        edit_item_new = new javax.swing.JToggleButton();
+        edit_item_prelove = new javax.swing.JToggleButton();
+        jLabel56 = new javax.swing.JLabel();
+        filterContainer21 = new javax.swing.JPanel();
+        edit_item_status = new javax.swing.JComboBox<>();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        edit_item_description = new javax.swing.JEditorPane();
+        edit_item_quantity = new javax.swing.JTextField();
+        edit_item_price = new javax.swing.JTextField();
+        edit_item_sku = new javax.swing.JTextField();
+        edit_item_name = new javax.swing.JTextField();
+        jLabel57 = new javax.swing.JLabel();
+        clear_btn_edit = new javax.swing.JButton();
+        save_btn_edit = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        search_btn_archive = new javax.swing.JTextField();
+        find_btn_archive = new javax.swing.JButton();
+        discontinue_archive_btn = new javax.swing.JButton();
+        restore_archive_btn = new javax.swing.JButton();
+        archive_table_container = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        archive_table = new javax.swing.JTable();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusTraversalPolicyProvider(true);
@@ -505,22 +646,1110 @@ public class staff_dashboard extends javax.swing.JFrame {
 
         confimation.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
+        jLabel6.setText("Items");
+        jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 70, 40));
 
-        confimation.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
+        jPanel2.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabs.addTab("tab2", confimation);
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("total items");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 80, 40));
+
+        total_items1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        total_items1.setText("1");
+        jPanel2.add(total_items1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, 40));
+
+        jPanel11.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 140, 40));
+        UXmethods.RoundBorders.setArcStyle(jPanel2, 30);
+
+        jPanel15.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("ITEM STATUS");
+        jPanel15.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 50));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel13.setText("SIZE OPTIONS");
+        jPanel15.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 310, 50));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel15.setText("COLOR OPTIONS");
+        jPanel15.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 310, 50));
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel16.setText("CATEGORY");
+        jPanel15.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 310, 50));
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel17.setText("SUPPLIER");
+        jPanel15.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 310, 50));
+
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel18.setText("CLOTH CONDITION");
+        jPanel15.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 170, 50));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setText("Discontinued");
+        jPanel15.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 80, 40));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel19.setText("All");
+        jPanel15.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 30, 40));
+
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel20.setText("Archived");
+        jPanel15.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 40));
+
+        soldout.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        soldout.setForeground(new java.awt.Color(102, 102, 102));
+        soldout.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel15.add(soldout, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 50, 40));
+
+        discontinued1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        discontinued1.setForeground(new java.awt.Color(102, 102, 102));
+        discontinued1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel15.add(discontinued1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 40));
+
+        all.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        all.setForeground(new java.awt.Color(102, 102, 102));
+        all.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel15.add(all, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 40, 40));
+
+        archived1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        archived1.setForeground(new java.awt.Color(102, 102, 102));
+        archived1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel15.add(archived1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 60, 40));
+
+        jLabel44.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel44.setText("Sold out");
+        jPanel15.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 80, 40));
+
+        soldout_btn.setBackground(new java.awt.Color(255, 229, 246));
+        soldout_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        soldout_btn.setBorder(null);
+        soldout_btn.setBorderPainted(false);
+        soldout_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soldout_btnActionPerformed(evt);
+            }
+        });
+        jPanel15.add(soldout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(soldout_btn, 30);
+
+        all_btn.setBackground(new java.awt.Color(255, 229, 246));
+        all_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        all_btn.setBorder(null);
+        all_btn.setBorderPainted(false);
+        all_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                all_btnActionPerformed(evt);
+            }
+        });
+        jPanel15.add(all_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(all_btn, 30);
+
+        discontinued_btn.setBackground(new java.awt.Color(255, 229, 246));
+        discontinued_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        discontinued_btn.setBorder(null);
+        discontinued_btn.setBorderPainted(false);
+        discontinued_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discontinued_btnActionPerformed(evt);
+            }
+        });
+        jPanel15.add(discontinued_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(discontinued_btn, 30);
+
+        items_archive_btn.setBackground(new java.awt.Color(255, 229, 246));
+        items_archive_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        items_archive_btn.setBorder(null);
+        items_archive_btn.setBorderPainted(false);
+        items_archive_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                items_archive_btnActionPerformed(evt);
+            }
+        });
+        jPanel15.add(items_archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(items_archive_btn, 30);
+
+        jLabel34.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel34.setText("New");
+        jPanel15.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, 40));
+
+        new_btn1.setBackground(new java.awt.Color(255, 229, 246));
+        new_btn1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        new_btn1.setBorder(null);
+        new_btn1.setBorderPainted(false);
+        new_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(new_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(new_btn, 30);
+
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel24.setText("Pre-love");
+        jPanel15.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 90, 40));
+
+        prelove_btn1.setBackground(new java.awt.Color(255, 229, 246));
+        prelove_btn1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        prelove_btn1.setBorder(null);
+        prelove_btn1.setBorderPainted(false);
+        prelove_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prelove_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(prelove_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(prelove_btn, 30);
+
+        filterContainer7.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        supplier1.setBackground(new java.awt.Color(255, 229, 246));
+        supplier1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        supplier1.setForeground(new java.awt.Color(51, 51, 51));
+        supplier1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT SUPPLIER", "A", "B", "C", "D" }));
+        supplier1.setSelectedIndex(0);
+        supplier1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        supplier1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplier1ActionPerformed(evt);
+            }
+        });
+        filterContainer7.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
+
+        jPanel15.add(filterContainer7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer2, 30);
+
+        filterContainer8.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        size_option1.setBackground(new java.awt.Color(255, 229, 246));
+        size_option1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        size_option1.setForeground(new java.awt.Color(51, 51, 51));
+        size_option1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIZE OPTIONS", "S", "M", "L", "XL", "XXL" }));
+        size_option1.setSelectedIndex(0);
+        size_option1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        size_option1.setOpaque(true);
+        size_option1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                size_option1ActionPerformed(evt);
+            }
+        });
+        filterContainer8.add(size_option1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
+
+        jPanel15.add(filterContainer8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer3, 30);
+
+        filterContainer9.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        color_option1.setBackground(new java.awt.Color(255, 229, 246));
+        color_option1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        color_option1.setForeground(new java.awt.Color(51, 51, 51));
+        color_option1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT COLOR", "Blue", "Green", "Yellow", "Black", "Orange" }));
+        color_option1.setSelectedIndex(0);
+        color_option1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        color_option1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color_option1ActionPerformed(evt);
+            }
+        });
+        filterContainer9.add(color_option1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, -1));
+
+        jPanel15.add(filterContainer9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer4, 30);
+
+        filterContainer10.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        category1.setBackground(new java.awt.Color(255, 229, 246));
+        category1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        category1.setForeground(new java.awt.Color(51, 51, 51));
+        category1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT CATEGORY", "Casual", "Formal", "Activewear" }));
+        category1.setSelectedIndex(0);
+        category1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        category1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                category1ActionPerformed(evt);
+            }
+        });
+        filterContainer10.add(category1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
+
+        jPanel15.add(filterContainer10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer5, 30);
+
+        reset_btn1.setBackground(new java.awt.Color(255, 229, 246));
+        reset_btn1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        reset_btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-reset.png"))); // NOI18N
+        reset_btn1.setText(" Reset filter");
+        reset_btn1.setBorderPainted(false);
+        reset_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reset_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(reset_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 710, 310, 60));
+        UXmethods.RoundBorders.setArcStyle(reset_btn, 30);
+
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel21.setText("Discontinued");
+        jPanel15.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 80, 40));
+
+        jPanel11.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 350, 790));
+        UXmethods.RoundBorders.setArcStyle(jPanel8, 20);
+
+        manage_table_container1.setBackground(new java.awt.Color(249, 249, 249));
+        manage_table_container1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        manage_table.setAutoCreateRowSorter(true);
+        manage_table.setBackground(new java.awt.Color(249, 249, 249));
+        manage_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        manage_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        manage_table.setFocusable(false);
+        manage_table.setGridColor(new java.awt.Color(0, 0, 0));
+        manage_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
+        manage_table.getTableHeader().setResizingAllowed(false);
+        manage_table.getTableHeader().setReorderingAllowed(false);
+        manage_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manage_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(manage_table);
+
+        manage_table_container1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 970, 750));
+
+        jPanel11.add(manage_table_container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 970, 790));
+        UXmethods.RoundBorders.setArcStyle(manage_table_container, 20);
+
+        search_btn_manage1.setSelectionColor(new java.awt.Color(255, 229, 246));
+        search_btn_manage1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search_btn_manage1KeyReleased(evt);
+            }
+        });
+        jPanel11.add(search_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 300, 40));
+        flatlaftTable.searchBar(search_btn_manage);
+        UXmethods.RoundBorders.setArcStyle(search_btn_manage, 30);
+
+        find_btn_manage1.setBackground(new java.awt.Color(255, 229, 246));
+        find_btn_manage1.setText("Find");
+        find_btn_manage1.setBorder(null);
+        find_btn_manage1.setBorderPainted(false);
+        find_btn_manage1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_btn_manage1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(find_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 60, 40));
+        UXmethods.RoundBorders.setArcStyle(find_btn_manage, 30);
+
+        add_to_archive_btn.setBackground(new java.awt.Color(238, 238, 238));
+        add_to_archive_btn.setText("add to archive");
+        add_to_archive_btn.setBorder(null);
+        add_to_archive_btn.setBorderPainted(false);
+        add_to_archive_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_to_archive_btnActionPerformed(evt);
+            }
+        });
+        jPanel11.add(add_to_archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 110, 140, 40));
+        UXmethods.RoundBorders.setArcStyle(add_to_archive_btn, 30);
+
+        edit_btn.setBackground(new java.awt.Color(238, 238, 238));
+        edit_btn.setText("edit item");
+        edit_btn.setBorder(null);
+        edit_btn.setBorderPainted(false);
+        edit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_btnActionPerformed(evt);
+            }
+        });
+        jPanel11.add(edit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 110, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(edit_btn, 30);
+
+        add_btn.setBackground(new java.awt.Color(238, 238, 238));
+        add_btn.setText("add item");
+        add_btn.setBorder(null);
+        add_btn.setBorderPainted(false);
+        add_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_btnActionPerformed(evt);
+            }
+        });
+        jPanel11.add(add_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 110, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(add_btn, 30);
+
+        confimation.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
+
+        tabs.addTab("manage_tab", confimation);
+
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel25.setText("Add Item");
+        jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 350, 40));
+
+        jLabel26.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel26.setText("General Information");
+        jPanel12.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 350, 40));
+
+        jPanel16.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel22.setText("CLOTH CONDITION");
+        jPanel16.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 50));
+
+        jLabel27.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel27.setText("SIZE OPTIONS");
+        jPanel16.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 310, 50));
+
+        jLabel28.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel28.setText("COLOR OPTIONS");
+        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 310, 50));
+
+        jLabel29.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel29.setText("MATERIAL");
+        jPanel16.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 310, 50));
+
+        jLabel30.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel30.setText("SUPPLIER");
+        jPanel16.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 310, 50));
+
+        jLabel31.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel31.setText("CATEGORY");
+        jPanel16.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 310, 50));
+
+        filterContainer11.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        add_item_supplier.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_supplier.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_supplier.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_supplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT SUPPLIER", "A", "B", "C", "D" }));
+        add_item_supplier.setSelectedIndex(0);
+        add_item_supplier.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add_item_supplier.setOpaque(true);
+        add_item_supplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_supplierActionPerformed(evt);
+            }
+        });
+        filterContainer11.add(add_item_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
+
+        jPanel16.add(filterContainer11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer6, 30);
+
+        filterContainer12.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        add_item_category.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_category.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_category.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT CATEGORY", "Casual", "Formal", "Activewear" }));
+        add_item_category.setSelectedIndex(0);
+        add_item_category.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add_item_category.setOpaque(true);
+        add_item_category.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_categoryActionPerformed(evt);
+            }
+        });
+        filterContainer12.add(add_item_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, -1));
+
+        jPanel16.add(filterContainer12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer7, 30);
+
+        filterContainer13.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        add_item_color_option.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_color_option.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_color_option.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_color_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT COLOR", "Blue", "Green", "Yellow", "Black", "Orange" }));
+        add_item_color_option.setSelectedIndex(0);
+        add_item_color_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add_item_color_option.setOpaque(true);
+        add_item_color_option.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_color_optionActionPerformed(evt);
+            }
+        });
+        filterContainer13.add(add_item_color_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, -1));
+
+        jPanel16.add(filterContainer13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer8, 30);
+
+        filterContainer14.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        add_item_size_option.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_size_option.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_size_option.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_size_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIZE OPTIONS", "S", "M", "L", "XL", "XXL" }));
+        add_item_size_option.setSelectedIndex(0);
+        add_item_size_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add_item_size_option.setOpaque(true);
+        add_item_size_option.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_size_optionActionPerformed(evt);
+            }
+        });
+        filterContainer14.add(add_item_size_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
+
+        jPanel16.add(filterContainer14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer9, 30);
+
+        filterContainer15.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        add_item_material.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_material.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_material.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT MATERIAL", "100% Cotton", "Polyester blend", "Leather" }));
+        add_item_material.setSelectedIndex(0);
+        add_item_material.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add_item_material.setOpaque(true);
+        add_item_material.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_materialActionPerformed(evt);
+            }
+        });
+        filterContainer15.add(add_item_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
+
+        jPanel16.add(filterContainer15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer10, 30);
+
+        jLabel32.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel32.setText("Pre-love");
+        jPanel16.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 60, 40));
+
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel35.setText("New");
+        jPanel16.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 40, 40));
+
+        add_item_new.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_new.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_new.setBorder(null);
+        add_item_new.setBorderPainted(false);
+        add_item_new.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_newActionPerformed(evt);
+            }
+        });
+        jPanel16.add(add_item_new, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(add_item_new, 30);
+
+        add_item_prelove.setBackground(new java.awt.Color(255, 229, 246));
+        add_item_prelove.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_prelove.setBorder(null);
+        add_item_prelove.setBorderPainted(false);
+        add_item_prelove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_preloveActionPerformed(evt);
+            }
+        });
+        jPanel16.add(add_item_prelove, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(add_item_prelove, 30);
+
+        jPanel12.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 350, 630));
+        UXmethods.RoundBorders.setArcStyle(jPanel12, 20);
+
+        jPanel17.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel17.setEnabled(false);
+        jPanel17.setFocusable(false);
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel36.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel36.setText("PRICE");
+        jPanel17.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 310, 50));
+
+        jLabel37.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel37.setText("ITEM DESCRIPTION");
+        jPanel17.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 310, 50));
+
+        jLabel38.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel38.setText("SKU");
+        jPanel17.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 310, 50));
+
+        jLabel39.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel39.setText("STOCK QUANTITY");
+        jPanel17.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 310, 50));
+
+        jScrollPane11.setBackground(new java.awt.Color(255, 255, 255));
+
+        add_item_description.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_description.setForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane11.setViewportView(add_item_description);
+        add_item_description.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  Should no longer than 200 chracters.");
+
+        jPanel17.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 310, 140));
+        UXmethods.RoundBorders.setArcStyle(jScrollPane11, 30);
+        jScrollPane11.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "e.g.., Trendy Denim Jacket");
+
+        add_item_quantity.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_quantity.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_quantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                add_item_quantityFocusGained(evt);
+            }
+        });
+        jPanel17.add(add_item_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 40));
+        add_item_quantity.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "INPUT QUANTITY");
+        UXmethods.RoundBorders.setArcStyle(add_item_quantity, 30);
+
+        add_item_price.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_price.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_price.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                add_item_priceFocusGained(evt);
+            }
+        });
+        jPanel17.add(add_item_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 310, 40));
+        add_item_price.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "₱  INPUT PRICE IN PESO");
+        UXmethods.RoundBorders.setArcStyle(add_item_price, 30);
+
+        add_item_sku.setEditable(false);
+        add_item_sku.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_sku.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_sku.setFocusable(false);
+        add_item_sku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_item_skuActionPerformed(evt);
+            }
+        });
+        jPanel17.add(add_item_sku, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 40));
+        add_item_sku.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "AUTO GENERATE");
+        UXmethods.RoundBorders.setArcStyle(add_item_sku, 30);
+
+        add_item_name.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_item_name.setForeground(new java.awt.Color(51, 51, 51));
+        add_item_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                add_item_nameFocusGained(evt);
+            }
+        });
+        jPanel17.add(add_item_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 310, 40));
+        add_item_name.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  e.g.., Trendy Denim Jacket");
+        UXmethods.RoundBorders.setArcStyle(add_item_name, 30);
+
+        jLabel43.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel43.setText("ITEM NAME");
+        jPanel17.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 50));
+
+        jPanel12.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 350, 630));
+        UXmethods.RoundBorders.setArcStyle(jPanel11, 20);
+
+        clear_btn_add.setBackground(new java.awt.Color(255, 239, 255));
+        clear_btn_add.setText("Clear");
+        clear_btn_add.setBorderPainted(false);
+        clear_btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clear_btn_addActionPerformed(evt);
+            }
+        });
+        jPanel12.add(clear_btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 870, 90, 50));
+        UXmethods.RoundBorders.setArcStyle(clear_btn_add, 30);
+
+        save_btn_add.setBackground(new java.awt.Color(255, 229, 246));
+        save_btn_add.setText("Save");
+        save_btn_add.setBorderPainted(false);
+        save_btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_btn_addActionPerformed(evt);
+            }
+        });
+        jPanel12.add(save_btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 870, 240, 50));
+        UXmethods.RoundBorders.setArcStyle(save_btn_add, 30);
+
+        jPanel7.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
+
+        tabs.addTab("add_item_tab", jPanel7);
+
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel40.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel40.setText("Edit Item");
+        jPanel13.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 350, 40));
+
+        jLabel41.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel41.setText("General Information");
+        jPanel13.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 350, 40));
+
+        jPanel18.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel45.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel45.setText("CLOTH CONDITION");
+        jPanel18.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, 50));
+
+        jLabel46.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel46.setText("SIZE OPTIONS");
+        jPanel18.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 310, 50));
+
+        jLabel47.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel47.setText("COLOR OPTIONS");
+        jPanel18.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 310, 50));
+
+        jLabel48.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel48.setText("MATERIAL");
+        jPanel18.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 310, 50));
+
+        jLabel49.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel49.setText("SUPPLIER");
+        jPanel18.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 310, 50));
+
+        jLabel50.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel50.setText("CATEGORY");
+        jPanel18.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 310, 50));
+
+        filterContainer16.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        edit_item_supplier.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_supplier.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_supplier.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_supplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT SUPPLIER", "A", "B", "C", "D" }));
+        edit_item_supplier.setSelectedIndex(0);
+        edit_item_supplier.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        edit_item_supplier.setOpaque(true);
+        edit_item_supplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_supplierActionPerformed(evt);
+            }
+        });
+        filterContainer16.add(edit_item_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
+
+        jPanel18.add(filterContainer16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer11, 30);
+
+        filterContainer17.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        edit_item_category.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_category.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_category.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT CATEGORY", "Casual", "Formal", "Activewear" }));
+        edit_item_category.setSelectedIndex(0);
+        edit_item_category.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        edit_item_category.setOpaque(true);
+        edit_item_category.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_categoryActionPerformed(evt);
+            }
+        });
+        filterContainer17.add(edit_item_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
+
+        jPanel18.add(filterContainer17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer12, 30);
+
+        filterContainer18.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        edit_item_color_option.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_color_option.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_color_option.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_color_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT COLOR", "Blue", "Green", "Yellow", "Black", "Orange" }));
+        edit_item_color_option.setSelectedIndex(0);
+        edit_item_color_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        edit_item_color_option.setOpaque(true);
+        edit_item_color_option.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_color_optionActionPerformed(evt);
+            }
+        });
+        filterContainer18.add(edit_item_color_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
+
+        jPanel18.add(filterContainer18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer13, 30);
+
+        filterContainer19.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        edit_item_size_option.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_size_option.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_size_option.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_size_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIZE OPTIONS", "S", "M", "L", "XL", "XXL" }));
+        edit_item_size_option.setSelectedIndex(0);
+        edit_item_size_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        edit_item_size_option.setOpaque(true);
+        edit_item_size_option.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_size_optionActionPerformed(evt);
+            }
+        });
+        filterContainer19.add(edit_item_size_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
+
+        jPanel18.add(filterContainer19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer14, 30);
+
+        filterContainer20.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        edit_item_material.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_material.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_material.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT MATERIAL", "100% Cotton", "Polyester blend", "Leather" }));
+        edit_item_material.setSelectedIndex(0);
+        edit_item_material.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        edit_item_material.setOpaque(true);
+        edit_item_material.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_materialActionPerformed(evt);
+            }
+        });
+        filterContainer20.add(edit_item_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
+
+        jPanel18.add(filterContainer20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer15, 30);
+
+        jLabel42.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel42.setText("Pre-love");
+        jPanel18.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 110, 40));
+
+        jLabel51.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel51.setText("New");
+        jPanel18.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 90, 40));
+
+        edit_item_new.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_new.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_new.setBorder(null);
+        edit_item_new.setBorderPainted(false);
+        edit_item_new.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_newActionPerformed(evt);
+            }
+        });
+        jPanel18.add(edit_item_new, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(edit_item_new, 30);
+
+        edit_item_prelove.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_prelove.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_prelove.setBorder(null);
+        edit_item_prelove.setBorderPainted(false);
+        edit_item_prelove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_preloveActionPerformed(evt);
+            }
+        });
+        jPanel18.add(edit_item_prelove, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, 40));
+        UXmethods.RoundBorders.setArcStyle(edit_item_prelove, 30);
+
+        jLabel56.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel56.setText("STATUS");
+        jPanel18.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, 310, 50));
+
+        filterContainer21.setBackground(new java.awt.Color(255, 229, 246));
+        filterContainer21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        edit_item_status.setBackground(new java.awt.Color(255, 229, 246));
+        edit_item_status.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_status.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT STATUS", "available", "archived", "solout", "discontinued" }));
+        edit_item_status.setSelectedIndex(0);
+        edit_item_status.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        edit_item_status.setOpaque(true);
+        edit_item_status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_item_statusActionPerformed(evt);
+            }
+        });
+        filterContainer21.add(edit_item_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
+
+        jPanel18.add(filterContainer21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 310, 40));
+        UXmethods.RoundBorders.setArcStyle(filterContainer16, 30);
+
+        jPanel13.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 350, 730));
+        UXmethods.RoundBorders.setArcStyle(jPanel15, 20);
+
+        jPanel19.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel19.setEnabled(false);
+        jPanel19.setFocusable(false);
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel52.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel52.setText("PRICE");
+        jPanel19.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 310, 50));
+
+        jLabel53.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel53.setText("ITEM DESCRIPTION");
+        jPanel19.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 310, 50));
+
+        jLabel54.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel54.setText("SKU");
+        jPanel19.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 310, 50));
+
+        jLabel55.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel55.setText("STOCK QUANTITY");
+        jPanel19.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 310, 50));
+
+        jScrollPane12.setBackground(new java.awt.Color(255, 255, 255));
+
+        edit_item_description.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_description.setForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane12.setViewportView(edit_item_description);
+        edit_item_description.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  Should no longer than 200 characters.");
+
+        jPanel19.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 140));
+        UXmethods.RoundBorders.setArcStyle(jScrollPane11, 30);
+        jScrollPane11.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "e.g.., Trendy Denim Jacket");
+
+        edit_item_quantity.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_quantity.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_quantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                edit_item_quantityFocusGained(evt);
+            }
+        });
+        jPanel19.add(edit_item_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 40));
+        add_item_quantity.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  INPUT QUANTITY");
+        UXmethods.RoundBorders.setArcStyle(edit_item_quantity, 30);
+
+        edit_item_price.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_price.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_price.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                edit_item_priceFocusGained(evt);
+            }
+        });
+        jPanel19.add(edit_item_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 310, 40));
+        add_item_price.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  ₱  INPUT PRICE IN PESO");
+        UXmethods.RoundBorders.setArcStyle(edit_item_price, 30);
+
+        edit_item_sku.setEditable(false);
+        edit_item_sku.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_sku.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_sku.setFocusable(false);
+        edit_item_sku.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                edit_item_skuFocusGained(evt);
+            }
+        });
+        jPanel19.add(edit_item_sku, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 40));
+        add_item_sku.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  AUTO GENERATE");
+        UXmethods.RoundBorders.setArcStyle(edit_item_sku, 30);
+
+        edit_item_name.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_item_name.setForeground(new java.awt.Color(51, 51, 51));
+        edit_item_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                edit_item_nameFocusGained(evt);
+            }
+        });
+        jPanel19.add(edit_item_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 310, 40));
+        edit_item_name.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  e.g.., Trendy Denim Jacket");
+        UXmethods.RoundBorders.setArcStyle(edit_item_name, 30);
+
+        jLabel57.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel57.setText("ITEM NAME");
+        jPanel19.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 50));
+
+        jPanel13.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 350, 630));
+        UXmethods.RoundBorders.setArcStyle(jPanel16, 20);
+
+        clear_btn_edit.setBackground(new java.awt.Color(255, 239, 255));
+        clear_btn_edit.setText("Clear");
+        clear_btn_edit.setBorderPainted(false);
+        clear_btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clear_btn_editActionPerformed(evt);
+            }
+        });
+        jPanel13.add(clear_btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 870, 90, 60));
+        UXmethods.RoundBorders.setArcStyle(clear_btn_edit, 30);
+
+        save_btn_edit.setBackground(new java.awt.Color(255, 229, 246));
+        save_btn_edit.setText("Save");
+        save_btn_edit.setBorderPainted(false);
+        save_btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_btn_editActionPerformed(evt);
+            }
+        });
+        jPanel13.add(save_btn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 870, 240, 60));
+        UXmethods.RoundBorders.setArcStyle(save_btn_edit, 30);
+
+        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
+
+        tabs.addTab("edit_item_tab", jPanel9);
+
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        search_btn_archive.setSelectionColor(new java.awt.Color(255, 229, 246));
+        search_btn_archive.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search_btn_archiveKeyReleased(evt);
+            }
+        });
+        jPanel14.add(search_btn_archive, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 300, 40));
+        flatlaftTable.searchBar(search_btn_archive);
+        UXmethods.RoundBorders.setArcStyle(search_btn_archive, 30);
+
+        find_btn_archive.setBackground(new java.awt.Color(246, 187, 223));
+        find_btn_archive.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        find_btn_archive.setText("Find");
+        find_btn_archive.setBorder(null);
+        find_btn_archive.setBorderPainted(false);
+        find_btn_archive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                find_btn_archiveActionPerformed(evt);
+            }
+        });
+        jPanel14.add(find_btn_archive, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 60, 40));
+        UXmethods.RoundBorders.setArcStyle(find_btn_archive, 30);
+
+        discontinue_archive_btn.setBackground(new java.awt.Color(255, 153, 153));
+        discontinue_archive_btn.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        discontinue_archive_btn.setText("discontinue");
+        discontinue_archive_btn.setBorder(null);
+        discontinue_archive_btn.setBorderPainted(false);
+        discontinue_archive_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discontinue_archive_btnActionPerformed(evt);
+            }
+        });
+        jPanel14.add(discontinue_archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 160, 100, 40));
+        UXmethods.RoundBorders.setArcStyle(discontinue_archive_btn, 30);
+
+        restore_archive_btn.setBackground(new java.awt.Color(153, 255, 153));
+        restore_archive_btn.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        restore_archive_btn.setText("restore");
+        restore_archive_btn.setBorder(null);
+        restore_archive_btn.setBorderPainted(false);
+        restore_archive_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restore_archive_btnActionPerformed(evt);
+            }
+        });
+        jPanel14.add(restore_archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 160, 100, 40));
+        UXmethods.RoundBorders.setArcStyle(restore_archive_btn, 30);
+
+        archive_table_container.setBackground(new java.awt.Color(249, 249, 249));
+        archive_table_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        archive_table.setAutoCreateRowSorter(true);
+        archive_table.setBackground(new java.awt.Color(249, 249, 249));
+        archive_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        archive_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        archive_table.setFocusable(false);
+        archive_table.setGridColor(new java.awt.Color(0, 0, 0));
+        archive_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
+        archive_table.getTableHeader().setResizingAllowed(false);
+        archive_table.getTableHeader().setReorderingAllowed(false);
+        archive_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                archive_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(archive_table);
+
+        archive_table_container.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1340, 700));
+
+        jPanel14.add(archive_table_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 1340, 740));
+        UXmethods.RoundBorders.setArcStyle(archive_table_container, 20);
+
+        jPanel10.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
+
+        tabs.addTab("archive_item_tab", jPanel10);
+
+        jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel21.setBackground(new java.awt.Color(246, 187, 223));
+        jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel58.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel58.setText("Print receipt?");
+        jPanel21.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 500, 40));
+
+        jLabel59.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel59.setText("Successfully saved");
+        jPanel21.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 500, 40));
+
+        jButton1.setBackground(new java.awt.Color(255, 221, 241));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setText("No");
+        jButton1.setBorderPainted(false);
+        jPanel21.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 110, 40));
+
+        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton2.setText("yes");
+        jButton2.setBorderPainted(false);
+        jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 110, 40));
+
+        jPanel20.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 500, 220));
+
+        tabs.addTab("receipt_tab", jPanel20);
 
         jPanel1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 980));
 
@@ -731,6 +1960,463 @@ public class staff_dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_incrementActionPerformed
 
+    private void soldout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soldout_btnActionPerformed
+        displayAll(dashboard_table, manage_table, archive_table, total_items, "soldout");
+        status_selection(soldout_btn, all_btn, items_archive_btn, discontinued_btn);
+    }//GEN-LAST:event_soldout_btnActionPerformed
+
+    private void all_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_all_btnActionPerformed
+        status_selection(all_btn, soldout_btn, items_archive_btn, discontinued_btn);
+        displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
+    }//GEN-LAST:event_all_btnActionPerformed
+
+    private void discontinued_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discontinued_btnActionPerformed
+        status_selection(discontinued_btn, items_archive_btn, soldout_btn, all_btn);
+        displayAll(dashboard_table, manage_table, archive_table, total_items, "discontinued");
+    }//GEN-LAST:event_discontinued_btnActionPerformed
+
+    private void items_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_items_archive_btnActionPerformed
+        displayAll(dashboard_table, manage_table, archive_table, total_items, "archived");
+        status_selection(items_archive_btn, soldout_btn, all_btn, discontinued_btn);
+    }//GEN-LAST:event_items_archive_btnActionPerformed
+
+    private void new_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_btn1ActionPerformed
+        new_btn.setSelected(true);
+        prelove_btn.setSelected(false);
+        cloth_type = "new";
+        sorter.toggle(manage_table, cloth_type);
+    }//GEN-LAST:event_new_btn1ActionPerformed
+
+    private void prelove_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prelove_btn1ActionPerformed
+        new_btn.setSelected(false);
+        prelove_btn.setSelected(true);
+        cloth_type = "prelove";
+        sorter.toggle(manage_table, cloth_type);
+    }//GEN-LAST:event_prelove_btn1ActionPerformed
+
+    private void supplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier1ActionPerformed
+        sorter.searchResult(manage_table, supplier);
+    }//GEN-LAST:event_supplier1ActionPerformed
+
+    private void size_option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_size_option1ActionPerformed
+        sorter.searchResult(manage_table, size_option);
+    }//GEN-LAST:event_size_option1ActionPerformed
+
+    private void color_option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color_option1ActionPerformed
+        sorter.searchResult(manage_table, color_option);
+    }//GEN-LAST:event_color_option1ActionPerformed
+
+    private void category1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_category1ActionPerformed
+        sorter.searchResult(manage_table, category);
+    }//GEN-LAST:event_category1ActionPerformed
+
+    private void reset_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btn1ActionPerformed
+        status_selection(all_btn, soldout_btn, items_archive_btn, discontinued_btn);
+        new_btn.setSelected(false);
+        prelove_btn.setSelected(false);
+        size_option.setSelectedIndex(0);
+        color_option.setSelectedIndex(0);
+        category.setSelectedIndex(0);
+        supplier.setSelectedIndex(0);
+        displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
+    }//GEN-LAST:event_reset_btn1ActionPerformed
+
+    private void manage_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manage_tableMouseClicked
+        get_id(manage_table);
+    }//GEN-LAST:event_manage_tableMouseClicked
+
+    private void search_btn_manage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_btn_manage1KeyReleased
+        search.searchResult(manage_table, search_btn_manage);
+    }//GEN-LAST:event_search_btn_manage1KeyReleased
+
+    private void find_btn_manage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_btn_manage1ActionPerformed
+        search.searchResult(manage_table, search_btn_manage);
+    }//GEN-LAST:event_find_btn_manage1ActionPerformed
+
+    private void add_to_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_to_archive_btnActionPerformed
+        update_item.status("archived", "Successfully archived Item!", "Restored", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
+        updateStatus();
+        displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
+    }//GEN-LAST:event_add_to_archive_btnActionPerformed
+
+    private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
+        get_item_info();
+    }//GEN-LAST:event_edit_btnActionPerformed
+
+    private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
+        tabs.setSelectedIndex(2);
+    }//GEN-LAST:event_add_btnActionPerformed
+
+    private void add_item_supplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_supplierActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_supplierActionPerformed
+
+    private void add_item_categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_categoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_categoryActionPerformed
+
+    private void add_item_color_optionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_color_optionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_color_optionActionPerformed
+
+    private void add_item_size_optionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_size_optionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_size_optionActionPerformed
+
+    private void add_item_materialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_materialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_materialActionPerformed
+
+    private void add_item_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_newActionPerformed
+        item_status = "new";
+        add_item_new.setSelected(true);
+        add_item_prelove.setSelected(false);
+    }//GEN-LAST:event_add_item_newActionPerformed
+
+    private void add_item_preloveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_preloveActionPerformed
+        item_status = "prelove";
+        add_item_new.setSelected(false);
+        add_item_prelove.setSelected(true);
+    }//GEN-LAST:event_add_item_preloveActionPerformed
+
+    private void add_item_quantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_add_item_quantityFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_quantityFocusGained
+
+    private void add_item_priceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_add_item_priceFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_priceFocusGained
+
+    private void add_item_skuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_skuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_skuActionPerformed
+
+    private void add_item_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_add_item_nameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_item_nameFocusGained
+
+    private void clear_btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_btn_addActionPerformed
+        clear_add_forms();
+    }//GEN-LAST:event_clear_btn_addActionPerformed
+
+    private void save_btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_btn_addActionPerformed
+        String category = (String) add_item_category.getSelectedItem();
+        String size = (String) add_item_size_option.getSelectedItem();
+        String color = (String) add_item_color_option.getSelectedItem();
+        String material = (String) add_item_material.getSelectedItem();
+        String supplier = (String) add_item_supplier.getSelectedItem();
+        String item_description = add_item_description.getText();
+        String item_name = add_item_name.getText();
+        String quantity = add_item_quantity.getText();
+        String price = add_item_price.getText();
+
+        if ((category.isEmpty()
+            || size.isEmpty()
+            || price.equals("₱")
+            || price.isEmpty()
+            || quantity.isEmpty()
+            || item_status.isEmpty()
+            || color.isEmpty())
+        || item_description.isEmpty()
+        || material.isEmpty()
+        || supplier.isEmpty()
+        || item_name.isEmpty()
+        || material.isEmpty()) {
+        Notifications.getInstance().show(Notifications.Type.ERROR, "Please fill in all fields!");
+        return;
+        }
+
+        if (item_name.length() > 20) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 20 characters!");
+            return;
+        }
+
+        if (item_description.length() > 200) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 200 characters!");
+            return;
+        }
+
+        int price_numeric;
+        int stock_numeric;
+
+        try {
+            price_numeric = Integer.parseInt(price);
+        } catch (NumberFormatException ex) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be numeric!");
+            return;
+        }
+
+        try {
+            stock_numeric = Integer.parseInt(quantity);
+        } catch (NumberFormatException ex) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Quantity must be numeric!");
+            return;
+        }
+
+        if (price_numeric <= 0) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be greater than zero!");
+            add_item_price.setText("");
+            return;
+        }
+        if (stock_numeric <= 0) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Stocks must be greater than zero!");
+            add_item_quantity.setText("");
+            return;
+        }
+
+        try {
+            databaseConnector dbc = new databaseConnector();
+            String insertQuery = "INSERT INTO tbl_items"
+            + "(`item_name`,"
+            + "`item_stocks`,"
+            + "`item_price`,"
+            + "`item_category`,"
+            + "`item_size`,"
+            + "`item_color`,"
+            + "`item_material`,"
+            + "`item_supplier`,"
+            + "`added_by`,"
+            + "`total_sold`,"
+            + "`item_condition`,"
+            + "`item_status`,"
+            + "`item_description`,"
+            + "`date_added`)"
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, NOW())";
+            try (PreparedStatement insertStmt = dbc.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
+                insertStmt.setString(1, item_name);
+                insertStmt.setString(2, quantity);
+                insertStmt.setString(3, price);
+                insertStmt.setString(4, category);
+                insertStmt.setString(5, size);
+                insertStmt.setString(6, color);
+                insertStmt.setString(7, material);
+                insertStmt.setString(8, supplier);
+                insertStmt.setInt(9, admin_id);
+                insertStmt.setString(10, "0");
+                insertStmt.setString(11, item_status);
+                insertStmt.setString(12, "available");
+                insertStmt.setString(13, item_description);
+
+                insertStmt.executeUpdate();
+            }
+            Notifications.getInstance().show(Notifications.Type.SUCCESS, "item added successfully!");
+
+            String action = "add item";
+            String details = "admin " + admin_id + " Successfully added a new item!";
+            actionLogs.recordAdminLogs(admin_id, action, details);
+            displayAll(dashboard_table, manage_table, archive_table, total_items, "available");
+            updateStatus();
+            clear_add_forms();
+            tabs.setSelectedIndex(1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error adding product!" + e.getMessage());
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_save_btn_addActionPerformed
+
+    private void edit_item_supplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_supplierActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_supplierActionPerformed
+
+    private void edit_item_categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_categoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_categoryActionPerformed
+
+    private void edit_item_color_optionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_color_optionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_color_optionActionPerformed
+
+    private void edit_item_size_optionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_size_optionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_size_optionActionPerformed
+
+    private void edit_item_materialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_materialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_materialActionPerformed
+
+    private void edit_item_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_newActionPerformed
+        item_status = "new";
+        edit_item_new.setSelected(true);
+        edit_item_prelove.setSelected(false);
+    }//GEN-LAST:event_edit_item_newActionPerformed
+
+    private void edit_item_preloveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_preloveActionPerformed
+        item_status = "prelove";
+        edit_item_new.setSelected(false);
+        edit_item_prelove.setSelected(true);
+    }//GEN-LAST:event_edit_item_preloveActionPerformed
+
+    private void edit_item_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_item_statusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_statusActionPerformed
+
+    private void edit_item_quantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edit_item_quantityFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_quantityFocusGained
+
+    private void edit_item_priceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edit_item_priceFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_priceFocusGained
+
+    private void edit_item_skuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edit_item_skuFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_skuFocusGained
+
+    private void edit_item_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edit_item_nameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_item_nameFocusGained
+
+    private void clear_btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_btn_editActionPerformed
+        get_item_info();
+    }//GEN-LAST:event_clear_btn_editActionPerformed
+
+    private void save_btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_btn_editActionPerformed
+        try {
+            databaseConnector dbc = new databaseConnector();
+            String sql;
+            String category = (String) edit_item_category.getSelectedItem();
+            String size = (String) edit_item_size_option.getSelectedItem();
+            String color = (String) edit_item_color_option.getSelectedItem();
+            String material = (String) edit_item_material.getSelectedItem();
+            String supplier = (String) edit_item_supplier.getSelectedItem();
+            String status = (String) edit_item_status.getSelectedItem();
+            String item_description = edit_item_description.getText();
+            String item_name = edit_item_name.getText();
+            String quantity = edit_item_quantity.getText();
+            String price = edit_item_price.getText();
+
+            if ((category.isEmpty()
+                || size.isEmpty()
+                || price.equals("₱")
+                || price.isEmpty()
+                || quantity.isEmpty()
+                || color.isEmpty())
+            || item_description.isEmpty()
+            || material.isEmpty()
+            || item_status.isEmpty()
+            || supplier.isEmpty()
+            || item_name.isEmpty()
+            || material.isEmpty()) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Please fill in all fields!");
+            return;
+        }
+
+        if (item_name.length() > 20) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 20 characters!");
+            return;
+        }
+
+        if (item_description.length() > 200) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 200 characters!");
+            return;
+        }
+
+        int price_numeric;
+        int stock_numeric;
+
+        try {
+            price_numeric = Integer.parseInt(price);
+        } catch (NumberFormatException ex) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be numeric!");
+            return;
+        }
+
+        try {
+            stock_numeric = Integer.parseInt(quantity);
+        } catch (NumberFormatException ex) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Quantity must be numeric!");
+            return;
+        }
+
+        if (price_numeric <= 0) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be greater than zero!");
+            add_item_price.setText("");
+            return;
+        }
+        if (stock_numeric <= 0) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Stocks must be greater than zero!");
+            add_item_quantity.setText("");
+            return;
+        }
+
+        sql = "UPDATE tbl_items SET "
+        + "item_stocks=?, "
+        + "item_price=?, "
+        + "item_category=?, "
+        + "item_size=?, "
+        + "item_color=?, "
+        + "item_supplier=?, "
+        + "item_material=?, "
+        + "item_condition=?, "
+        + "item_status=?, "
+        + "item_description=?, "
+        + "item_name=? "
+        + "WHERE item_SKU=?";
+
+        String checkQuery = "SELECT COUNT(*) FROM tbl_items WHERE item_SKU = ?";
+        PreparedStatement checkStmt = dbc.getConnection().prepareStatement(checkQuery);
+        checkStmt.setInt(1, get_item_id);
+        ResultSet rs = checkStmt.executeQuery();
+        rs.next();
+        try (PreparedStatement pst = dbc.getConnection().prepareStatement(sql)) {
+            pst.setString(1, quantity);
+            pst.setString(2, price);
+            pst.setString(3, category);
+            pst.setString(4, size);
+            pst.setString(5, color);
+            pst.setString(6, supplier);
+            pst.setString(7, material);
+            pst.setString(8, item_status);
+            pst.setString(9, status);
+            pst.setString(10, item_description);
+            pst.setString(11, item_name);
+            pst.setInt(12, get_item_id);
+
+            int rowsUpdated = pst.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
+                displayAll(dashboard_table, manage_table, archive_table, total_items, "available");
+                updateStatus();
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to update data!");
+            }
+        }
+
+        String action = "edit item";
+        String details = "admin " + admin_id + " successfully edited item " + get_item_id + "!";
+        actionLogs.recordAdminLogs(admin_id, action, details);
+        clear_edit_forms();
+        tabs.setSelectedIndex(1);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "SQL Error updating data: " + e.getMessage());
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_save_btn_editActionPerformed
+
+    private void search_btn_archiveKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_btn_archiveKeyReleased
+        search.searchResult(archive_table, search_btn_archive);
+    }//GEN-LAST:event_search_btn_archiveKeyReleased
+
+    private void find_btn_archiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_btn_archiveActionPerformed
+        search.searchResult(archive_table, search_btn_archive);
+    }//GEN-LAST:event_find_btn_archiveActionPerformed
+
+    private void discontinue_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discontinue_archive_btnActionPerformed
+        update_item.status("discontinue", "Successfully discontinued Item!", "discontinued", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
+        updateStatus();
+    }//GEN-LAST:event_discontinue_archive_btnActionPerformed
+
+    private void restore_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restore_archive_btnActionPerformed
+        update_item.status("available", "Successfully restored Item!", "restored", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
+        updateStatus();
+    }//GEN-LAST:event_restore_archive_btnActionPerformed
+
+    private void archive_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archive_tableMouseClicked
+        get_id(archive_table);
+    }//GEN-LAST:event_archive_tableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -747,57 +2433,198 @@ public class staff_dashboard extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_btn;
+    private javax.swing.JComboBox<String> add_item_category;
+    private javax.swing.JComboBox<String> add_item_color_option;
+    private javax.swing.JEditorPane add_item_description;
+    private javax.swing.JComboBox<String> add_item_material;
+    private javax.swing.JTextField add_item_name;
+    private javax.swing.JToggleButton add_item_new;
+    private javax.swing.JToggleButton add_item_prelove;
+    private javax.swing.JTextField add_item_price;
+    private javax.swing.JTextField add_item_quantity;
+    private javax.swing.JComboBox<String> add_item_size_option;
+    private javax.swing.JTextField add_item_sku;
+    private javax.swing.JComboBox<String> add_item_supplier;
+    private javax.swing.JButton add_to_archive_btn;
+    private javax.swing.JLabel all;
+    private javax.swing.JToggleButton all_btn;
+    private javax.swing.JTable archive_table;
+    private javax.swing.JPanel archive_table_container;
     private javax.swing.JLabel archived;
+    private javax.swing.JLabel archived1;
     private javax.swing.JButton buy_now_btn;
     private javax.swing.JButton call_admin_btn;
     private javax.swing.JComboBox<String> category;
+    private javax.swing.JComboBox<String> category1;
+    private javax.swing.JButton clear_btn_add;
+    private javax.swing.JButton clear_btn_edit;
     private javax.swing.JComboBox<String> color_option;
+    private javax.swing.JComboBox<String> color_option1;
     private javax.swing.JPanel confimation;
     private javax.swing.JPanel dashboard;
     private javax.swing.JToggleButton dashboard_btn;
     private javax.swing.JLabel date_today;
     private javax.swing.JButton decrement;
+    private javax.swing.JButton discontinue_archive_btn;
     private javax.swing.JLabel discontinued;
+    private javax.swing.JLabel discontinued1;
+    private javax.swing.JToggleButton discontinued_btn;
     private javax.swing.JTextField display_quantity;
+    private javax.swing.JButton edit_btn;
+    private javax.swing.JComboBox<String> edit_item_category;
+    private javax.swing.JComboBox<String> edit_item_color_option;
+    private javax.swing.JEditorPane edit_item_description;
+    private javax.swing.JComboBox<String> edit_item_material;
+    private javax.swing.JTextField edit_item_name;
+    private javax.swing.JToggleButton edit_item_new;
+    private javax.swing.JToggleButton edit_item_prelove;
+    private javax.swing.JTextField edit_item_price;
+    private javax.swing.JTextField edit_item_quantity;
+    private javax.swing.JComboBox<String> edit_item_size_option;
+    private javax.swing.JTextField edit_item_sku;
+    private javax.swing.JComboBox<String> edit_item_status;
+    private javax.swing.JComboBox<String> edit_item_supplier;
+    private javax.swing.JPanel filterContainer10;
+    private javax.swing.JPanel filterContainer11;
+    private javax.swing.JPanel filterContainer12;
+    private javax.swing.JPanel filterContainer13;
+    private javax.swing.JPanel filterContainer14;
+    private javax.swing.JPanel filterContainer15;
+    private javax.swing.JPanel filterContainer16;
+    private javax.swing.JPanel filterContainer17;
+    private javax.swing.JPanel filterContainer18;
+    private javax.swing.JPanel filterContainer19;
     private javax.swing.JPanel filterContainer2;
+    private javax.swing.JPanel filterContainer20;
+    private javax.swing.JPanel filterContainer21;
     private javax.swing.JPanel filterContainer3;
     private javax.swing.JPanel filterContainer4;
     private javax.swing.JPanel filterContainer5;
     private javax.swing.JPanel filterContainer6;
+    private javax.swing.JPanel filterContainer7;
+    private javax.swing.JPanel filterContainer8;
+    private javax.swing.JPanel filterContainer9;
+    private javax.swing.JButton find_btn_archive;
     private javax.swing.JButton find_btn_manage;
+    private javax.swing.JButton find_btn_manage1;
     private javax.swing.JButton increment;
+    private javax.swing.JToggleButton items_archive_btn;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JToggleButton logout_btn;
+    private javax.swing.JTable manage_table;
     private javax.swing.JPanel manage_table_container;
+    private javax.swing.JPanel manage_table_container1;
     private javax.swing.JComboBox<String> material;
     private javax.swing.JToggleButton new_btn;
+    private javax.swing.JToggleButton new_btn1;
     private javax.swing.JToggleButton prelove_btn;
+    private javax.swing.JToggleButton prelove_btn1;
     private javax.swing.JLabel profile_icon1;
     private javax.swing.JButton reset_btn;
+    private javax.swing.JButton reset_btn1;
+    private javax.swing.JButton restore_archive_btn;
+    private javax.swing.JButton save_btn_add;
+    private javax.swing.JButton save_btn_edit;
+    private javax.swing.JTextField search_btn_archive;
     private javax.swing.JTextField search_btn_manage;
+    private javax.swing.JTextField search_btn_manage1;
     private javax.swing.JComboBox<String> size_option;
+    private javax.swing.JComboBox<String> size_option1;
+    private javax.swing.JLabel soldout;
+    private javax.swing.JToggleButton soldout_btn;
     private javax.swing.JTable staff_table;
     private javax.swing.JComboBox<String> supplier;
+    private javax.swing.JComboBox<String> supplier1;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JPanel top_navbar;
     private javax.swing.JLabel total_items;
+    private javax.swing.JLabel total_items1;
     // End of variables declaration//GEN-END:variables
 }
