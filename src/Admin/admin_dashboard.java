@@ -1788,7 +1788,7 @@ public class admin_dashboard extends javax.swing.JFrame {
         archive_table_container1.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1340, 700));
 
         jPanel3.add(archive_table_container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 1340, 740));
-        UXmethods.RoundBorders.setArcStyle(archive_table_container, 20);
+        UXmethods.RoundBorders.setArcStyle(archive_table_container1, 20);
 
         discontinue_archive_btn1.setBackground(new java.awt.Color(255, 153, 153));
         discontinue_archive_btn1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
@@ -1820,7 +1820,7 @@ public class admin_dashboard extends javax.swing.JFrame {
 
         tabs.addTab("accouts_tab", acountssssssssssssssssssssssssss);
 
-        parent_of_the_parent.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
+        parent_of_the_parent.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 1010));
 
         getContentPane().add(parent_of_the_parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 976));
 

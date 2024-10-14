@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 29, 2024 at 07:45 PM
+-- Host: 127.0.0.1
+-- Generation Time: Oct 14, 2024 at 07:38 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,6 +53,18 @@ INSERT INTO `tbl_accounts` (`account_id`, `first_name`, `last_name`, `address`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_invoice`
+--
+
+CREATE TABLE `tbl_invoice` (
+  `invoice_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `item_SKU` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_items`
 --
 
@@ -80,10 +92,10 @@ CREATE TABLE `tbl_items` (
 
 INSERT INTO `tbl_items` (`item_SKU`, `item_name`, `item_description`, `item_stocks`, `item_price`, `total_sold`, `item_condition`, `item_category`, `item_size`, `item_color`, `item_material`, `item_supplier`, `added_by`, `date_added`, `item_status`) VALUES
 (1001, 'Classic T-Shirt	', 'Good', 0, 2000, 4, 'prelove', 'Casual', 'M', 'Blue', '100% Cotton', 'A', 1, '2024-09-22 16:25:17', 'soldout'),
-(1003, '123', 'Good', 123, 123, 0, 'new', 'Formal', 'L', 'Yellow', 'Polyester blend', 'B', 1, '2024-09-22 15:21:55', 'archived'),
-(1004, '435', 'Bad', 435435, 435, 0, 'new', 'Activewear', 'XXL', 'Green', 'Leather', 'C', 1, '2024-09-22 15:21:58', 'archived'),
-(1005, '3242', 'Nice', 228, 234, 6, 'false', 'Casual', 'M', 'Black', '100% Cotton', 'D', 1, '2024-09-22 17:46:06', 'available'),
-(1006, '34', 'Yey', 124, 34, 0, 'new', 'Formal', 'L', 'Orange', 'Polyester blend', 'A', 1, '2024-09-22 15:22:08', 'soldout');
+(1003, 'Denim', 'Good', 2, 123, 0, 'new', 'Formal', 'L', 'Yellow', 'Polyester blend', 'B', 1, '2024-10-14 05:35:50', 'archived'),
+(1004, 'Jacket', 'Bad', 1, 435, 4, 'false', 'Activewear', 'XXL', 'Green', 'Leather', 'C', 1, '2024-10-14 05:35:57', 'available'),
+(1005, 'Pakigol', 'Nice', 1, 234, 10, 'new', 'Casual', 'M', 'Black', '100% Cotton', 'D', 1, '2024-10-14 05:36:06', 'available'),
+(1006, 'Panty', 'Yey', 1, 34, 0, 'new', 'Formal', 'L', 'Orange', 'Polyester blend', 'A', 1, '2024-10-14 05:36:38', 'available');
 
 -- --------------------------------------------------------
 
@@ -125,6 +137,14 @@ ALTER TABLE `tbl_accounts`
   ADD PRIMARY KEY (`account_id`);
 
 --
+-- Indexes for table `tbl_invoice`
+--
+ALTER TABLE `tbl_invoice`
+  ADD PRIMARY KEY (`invoice_id`),
+  ADD KEY `item_SKU` (`item_SKU`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `tbl_items`
 --
 ALTER TABLE `tbl_items`
@@ -149,6 +169,12 @@ ALTER TABLE `tbl_accounts`
   MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `tbl_invoice`
+--
+ALTER TABLE `tbl_invoice`
+  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_items`
 --
 ALTER TABLE `tbl_items`
@@ -158,11 +184,18 @@ ALTER TABLE `tbl_items`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tbl_invoice`
+--
+ALTER TABLE `tbl_invoice`
+  ADD CONSTRAINT `tbl_invoice_ibfk_1` FOREIGN KEY (`item_SKU`) REFERENCES `tbl_items` (`item_SKU`),
+  ADD CONSTRAINT `tbl_invoice_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tbl_accounts` (`account_id`);
 
 --
 -- Constraints for table `tbl_items`

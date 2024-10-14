@@ -4,22 +4,29 @@
  */
 package Staff;
 
+import static Admin.admin_dashboard.displayAll;
 import Admin.display_items;
+import Admin.update_item;
 import accounts.Login;
 import accounts.UserManager;
+import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
+import config.PanelPrinter;
 import config.actionLogs;
 import config.databaseConnector;
 import config.display_time;
 import config.flatlaftTable;
+import config.print_receipt;
 import config.search;
 import config.sorter;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
@@ -41,10 +48,18 @@ public class staff_dashboard extends javax.swing.JFrame {
 
     public staff_dashboard() {
         initComponents();
+        displayAll(staff_table, manage_table, archive_table, total_items, "all", total_items1);
         display_time.now(date_today);
-        display_items.to_staff_table(staff_table);
         dashboard_btn.setSelected(true);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
+    }
+
+    public static void displayAll(JTable staff_table, JTable manageTable, JTable archiveTable, JLabel total_items, String status, JLabel jLabel3) {
+        display_items.to_staff_table(staff_table);
+        display_items.manage(manageTable, status);
+        display_items.archive(archiveTable);
+        display_items.updateTotalItems(total_items);
+        display_items.updateTotalItems(jLabel3);
     }
 
     /**
@@ -63,6 +78,8 @@ public class staff_dashboard extends javax.swing.JFrame {
         date_today = new javax.swing.JLabel();
         profile_icon1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        manage_btn = new javax.swing.JToggleButton();
+        archive_btn = new javax.swing.JToggleButton();
         tabs = new javax.swing.JTabbedPane();
         dashboard = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -78,8 +95,6 @@ public class staff_dashboard extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        discontinued = new javax.swing.JLabel();
-        archived = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         new_btn = new javax.swing.JToggleButton();
         jLabel23 = new javax.swing.JLabel();
@@ -145,6 +160,8 @@ public class staff_dashboard extends javax.swing.JFrame {
         category1 = new javax.swing.JComboBox<>();
         reset_btn1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
+        discontinued = new javax.swing.JLabel();
+        archived = new javax.swing.JLabel();
         manage_table_container1 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         manage_table = new javax.swing.JTable();
@@ -274,7 +291,7 @@ public class staff_dashboard extends javax.swing.JFrame {
                 dashboard_btnActionPerformed(evt);
             }
         });
-        top_navbar.add(dashboard_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 120, 30));
+        top_navbar.add(dashboard_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 120, 30));
         UXmethods.RoundBorders.setArcStyle(dashboard_btn, 30);
 
         logout_btn.setBackground(new java.awt.Color(255, 229, 246));
@@ -289,7 +306,7 @@ public class staff_dashboard extends javax.swing.JFrame {
                 logout_btnActionPerformed(evt);
             }
         });
-        top_navbar.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 100, 30));
+        top_navbar.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 100, 30));
         UXmethods.RoundBorders.setArcStyle(logout_btn, 30);
 
         date_today.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -305,9 +322,40 @@ public class staff_dashboard extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         top_navbar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 60));
 
+        manage_btn.setBackground(new java.awt.Color(255, 229, 246));
+        manage_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        manage_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-manage.png"))); // NOI18N
+        manage_btn.setText(" Manage");
+        manage_btn.setBorder(null);
+        manage_btn.setBorderPainted(false);
+        manage_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-manage-selected.png"))); // NOI18N
+        manage_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manage_btnActionPerformed(evt);
+            }
+        });
+        top_navbar.add(manage_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 110, 30));
+        UXmethods.RoundBorders.setArcStyle(manage_btn, 30);
+
+        archive_btn.setBackground(new java.awt.Color(255, 229, 246));
+        archive_btn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        archive_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-archived.png"))); // NOI18N
+        archive_btn.setText(" Archived");
+        archive_btn.setBorder(null);
+        archive_btn.setBorderPainted(false);
+        archive_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-archived-selected.png"))); // NOI18N
+        archive_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                archive_btnActionPerformed(evt);
+            }
+        });
+        top_navbar.add(archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 110, 30));
+        UXmethods.RoundBorders.setArcStyle(archive_btn, 30);
+
         jPanel1.add(top_navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1380, 70));
 
         tabs.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
+        tabs.setPreferredSize(new java.awt.Dimension(1490, 980));
 
         dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -362,7 +410,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("SIZE OPTIONS");
-        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 310, 50));
+        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, 50));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
@@ -383,16 +431,6 @@ public class staff_dashboard extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(153, 153, 153));
         jLabel11.setText("CLOTH CONDITION");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, 50));
-
-        discontinued.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        discontinued.setForeground(new java.awt.Color(102, 102, 102));
-        discontinued.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel8.add(discontinued, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 40));
-
-        archived.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        archived.setForeground(new java.awt.Color(102, 102, 102));
-        archived.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel8.add(archived, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 60, 40));
 
         jLabel33.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel33.setText("New");
@@ -800,7 +838,7 @@ public class staff_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel15.add(new_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 150, 40));
-        UXmethods.RoundBorders.setArcStyle(new_btn, 30);
+        UXmethods.RoundBorders.setArcStyle(new_btn1, 30);
 
         jLabel24.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel24.setText("Pre-love");
@@ -816,7 +854,7 @@ public class staff_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel15.add(prelove_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 150, 40));
-        UXmethods.RoundBorders.setArcStyle(prelove_btn, 30);
+        UXmethods.RoundBorders.setArcStyle(prelove_btn1, 30);
 
         filterContainer7.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -835,7 +873,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer7.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
 
         jPanel15.add(filterContainer7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer2, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer7, 30);
 
         filterContainer8.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -855,7 +893,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer8.add(size_option1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
 
         jPanel15.add(filterContainer8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer3, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer8, 30);
 
         filterContainer9.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -874,7 +912,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer9.add(color_option1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, -1));
 
         jPanel15.add(filterContainer9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer4, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer9, 30);
 
         filterContainer10.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -893,7 +931,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer10.add(category1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
 
         jPanel15.add(filterContainer10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer5, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer10, 30);
 
         reset_btn1.setBackground(new java.awt.Color(255, 229, 246));
         reset_btn1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -906,11 +944,21 @@ public class staff_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel15.add(reset_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 710, 310, 60));
-        UXmethods.RoundBorders.setArcStyle(reset_btn, 30);
+        UXmethods.RoundBorders.setArcStyle(reset_btn1, 30);
 
         jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel21.setText("Discontinued");
         jPanel15.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 80, 40));
+
+        discontinued.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        discontinued.setForeground(new java.awt.Color(102, 102, 102));
+        discontinued.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel15.add(discontinued, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 40));
+
+        archived.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        archived.setForeground(new java.awt.Color(102, 102, 102));
+        archived.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel15.add(archived, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 60, 40));
 
         jPanel11.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 350, 790));
         UXmethods.RoundBorders.setArcStyle(jPanel8, 20);
@@ -946,7 +994,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         manage_table_container1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 970, 750));
 
         jPanel11.add(manage_table_container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 970, 790));
-        UXmethods.RoundBorders.setArcStyle(manage_table_container, 20);
+        UXmethods.RoundBorders.setArcStyle(manage_table_container1, 20);
 
         search_btn_manage1.setSelectionColor(new java.awt.Color(255, 229, 246));
         search_btn_manage1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -955,8 +1003,8 @@ public class staff_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel11.add(search_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 300, 40));
-        flatlaftTable.searchBar(search_btn_manage);
-        UXmethods.RoundBorders.setArcStyle(search_btn_manage, 30);
+        flatlaftTable.searchBar(search_btn_manage1);
+        UXmethods.RoundBorders.setArcStyle(search_btn_manage1, 30);
 
         find_btn_manage1.setBackground(new java.awt.Color(255, 229, 246));
         find_btn_manage1.setText("Find");
@@ -968,7 +1016,7 @@ public class staff_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel11.add(find_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 60, 40));
-        UXmethods.RoundBorders.setArcStyle(find_btn_manage, 30);
+        UXmethods.RoundBorders.setArcStyle(find_btn_manage1, 30);
 
         add_to_archive_btn.setBackground(new java.awt.Color(238, 238, 238));
         add_to_archive_btn.setText("add to archive");
@@ -1074,7 +1122,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer11.add(add_item_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
 
         jPanel16.add(filterContainer11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer6, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer11, 30);
 
         filterContainer12.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1094,7 +1142,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer12.add(add_item_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, -1));
 
         jPanel16.add(filterContainer12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer7, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer12, 30);
 
         filterContainer13.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1114,7 +1162,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer13.add(add_item_color_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, -1));
 
         jPanel16.add(filterContainer13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer8, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer13, 30);
 
         filterContainer14.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1134,7 +1182,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer14.add(add_item_size_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
 
         jPanel16.add(filterContainer14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer9, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer14, 30);
 
         filterContainer15.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1154,7 +1202,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer15.add(add_item_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 20));
 
         jPanel16.add(filterContainer15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer10, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer15, 30);
 
         jLabel32.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel32.setText("Pre-love");
@@ -1189,7 +1237,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         UXmethods.RoundBorders.setArcStyle(add_item_prelove, 30);
 
         jPanel12.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 350, 630));
-        UXmethods.RoundBorders.setArcStyle(jPanel12, 20);
+        UXmethods.RoundBorders.setArcStyle(jPanel16, 20);
 
         jPanel17.setBackground(new java.awt.Color(249, 249, 249));
         jPanel17.setEnabled(false);
@@ -1279,7 +1327,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         jPanel17.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 50));
 
         jPanel12.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 350, 630));
-        UXmethods.RoundBorders.setArcStyle(jPanel11, 20);
+        UXmethods.RoundBorders.setArcStyle(jPanel17, 20);
 
         clear_btn_add.setBackground(new java.awt.Color(255, 239, 255));
         clear_btn_add.setText("Clear");
@@ -1371,7 +1419,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer16.add(edit_item_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
 
         jPanel18.add(filterContainer16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer11, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer16, 30);
 
         filterContainer17.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1391,7 +1439,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer17.add(edit_item_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
 
         jPanel18.add(filterContainer17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer12, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer17, 30);
 
         filterContainer18.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1411,7 +1459,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer18.add(edit_item_color_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
 
         jPanel18.add(filterContainer18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer13, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer18, 30);
 
         filterContainer19.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1431,7 +1479,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer19.add(edit_item_size_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
 
         jPanel18.add(filterContainer19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer14, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer19, 30);
 
         filterContainer20.setBackground(new java.awt.Color(255, 229, 246));
         filterContainer20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1451,7 +1499,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer20.add(edit_item_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
 
         jPanel18.add(filterContainer20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer15, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer20, 30);
 
         jLabel42.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel42.setText("Pre-love");
@@ -1508,10 +1556,10 @@ public class staff_dashboard extends javax.swing.JFrame {
         filterContainer21.add(edit_item_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 290, 30));
 
         jPanel18.add(filterContainer21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 310, 40));
-        UXmethods.RoundBorders.setArcStyle(filterContainer16, 30);
+        UXmethods.RoundBorders.setArcStyle(filterContainer21, 30);
 
         jPanel13.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 350, 730));
-        UXmethods.RoundBorders.setArcStyle(jPanel15, 20);
+        UXmethods.RoundBorders.setArcStyle(jPanel18, 20);
 
         jPanel19.setBackground(new java.awt.Color(249, 249, 249));
         jPanel19.setEnabled(false);
@@ -1546,8 +1594,8 @@ public class staff_dashboard extends javax.swing.JFrame {
         edit_item_description.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "  Should no longer than 200 characters.");
 
         jPanel19.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 140));
-        UXmethods.RoundBorders.setArcStyle(jScrollPane11, 30);
-        jScrollPane11.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "e.g.., Trendy Denim Jacket");
+        UXmethods.RoundBorders.setArcStyle(jScrollPane12, 30);
+        jScrollPane12.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "e.g.., Trendy Denim Jacket");
 
         edit_item_quantity.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         edit_item_quantity.setForeground(new java.awt.Color(51, 51, 51));
@@ -1601,7 +1649,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         jPanel19.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 50));
 
         jPanel13.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 350, 630));
-        UXmethods.RoundBorders.setArcStyle(jPanel16, 20);
+        UXmethods.RoundBorders.setArcStyle(jPanel19, 20);
 
         clear_btn_edit.setBackground(new java.awt.Color(255, 239, 255));
         clear_btn_edit.setText("Clear");
@@ -1740,18 +1788,31 @@ public class staff_dashboard extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setText("No");
         jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel21.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(jButton1, 10);
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton2.setText("yes");
         jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel21.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(jButton2, 10);
 
         jPanel20.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 500, 220));
+        UXmethods.RoundBorders.setArcStyle(jPanel21, 20);
 
         tabs.addTab("receipt_tab", jPanel20);
 
-        jPanel1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1440, 980));
+        jPanel1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 980));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
 
@@ -1770,7 +1831,8 @@ public class staff_dashboard extends javax.swing.JFrame {
     }
 
     private void dashboard_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboard_btnActionPerformed
-        tabs.setSelectedIndex(0);
+        handleButtonSelection(0, dashboard_btn, manage_btn, archive_btn);
+        updateStatus();
     }//GEN-LAST:event_dashboard_btnActionPerformed
 
     private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
@@ -1841,6 +1903,8 @@ public class staff_dashboard extends javax.swing.JFrame {
     private static int item_stock;
     private static int newStock = 0;
     private static int get_item_id;
+    private static int item_price = 0;
+    public static String itemName;
 
     private void get_id(JTable table) {
         int rowIndex = table.getSelectedRow();
@@ -1857,6 +1921,8 @@ public class staff_dashboard extends javax.swing.JFrame {
                     get_item_id = rs.getInt("item_SKU");
                     item_stock = rs.getInt("item_stocks");
                     quan = rs.getInt("item_stocks");
+                    item_price = rs.getInt("item_price");
+                    itemName = rs.getString("item_name");
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error retrieving data: " + e.getMessage());
@@ -1911,26 +1977,63 @@ public class staff_dashboard extends javax.swing.JFrame {
         }
     }
 
+    public static int total_pay = 0;
+    public static int total_quantity = 0;
+    public static int total_change = 0;
+    public static int cash = 0;
+
+
     private void buy_now_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buy_now_btnActionPerformed
         int rowIndex = staff_table.getSelectedRow();
-        newStock = item_stock - num;
         if (rowIndex < 0) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Please select and item first!");
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Please select an item first!");
             return;
         }
+
+        // Prompt user for cash input and parse it to an integer
+        String cashInput = JOptionPane.showInputDialog(null, "Enter Cash:");
+        cash = Integer.parseInt(cashInput);
+        total_quantity = Integer.parseInt(display_quantity.getText());
+        total_pay = item_price * total_quantity;
+
+        if (cash < total_pay) {
+            JOptionPane.showMessageDialog(null, "Insufficient cash!"); // Notify user
+            return;
+        } else {
+            total_change = cash - total_pay;
+            JOptionPane.showMessageDialog(null, "Change: " + total_change + ""); // Notify user
+        }
+
+        // Update stock and item details
+        newStock = item_stock - num;
+        if (newStock < 0) {
+            JOptionPane.showMessageDialog(null, "Not enough stock available!"); // Prevent negative stock
+            return;
+        }
+
+        // Update the stock in the database
         databaseConnector dbc = new databaseConnector();
         updateStock(newStock, get_item_id);
+
+        // Check if item is sold out
         if (newStock < 1) {
             updateStatus("soldout");
         }
+
+        // Update product sold count
         updateProductSold(num, get_item_id);
+
+        // Notify user of successful transaction
         Notifications.getInstance().show(Notifications.Type.SUCCESS, "Item has been accepted successfully!");
 
+        // Log the action
         String action = "Buy";
-        String details = "User " + user_id + " sold item " + get_item_id + "successfully!";
+        String details = "User  " + user_id + " sold item " + get_item_id + " successfully!";
         actionLogs.recordAdminLogs(user_id, action, details);
-        newStock = 0;
+
+        // Refresh stock display
         display_items.to_staff_table(staff_table);
+        tabs.setSelectedIndex(5);
     }//GEN-LAST:event_buy_now_btnActionPerformed
 
     private void materialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialActionPerformed
@@ -1959,24 +2062,31 @@ public class staff_dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insufficient stock. Available stock: " + quan);
         }
     }//GEN-LAST:event_incrementActionPerformed
+    private void status_selection(JToggleButton selectedButton, JToggleButton... otherButtons) {
 
+        selectedButton.setSelected(true);
+
+        for (JToggleButton btn : otherButtons) {
+            btn.setSelected(false);
+        }
+    }
     private void soldout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soldout_btnActionPerformed
-        displayAll(dashboard_table, manage_table, archive_table, total_items, "soldout");
+        displayAll(staff_table, manage_table, archive_table, total_items, "soldout", total_items1);
         status_selection(soldout_btn, all_btn, items_archive_btn, discontinued_btn);
     }//GEN-LAST:event_soldout_btnActionPerformed
 
     private void all_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_all_btnActionPerformed
         status_selection(all_btn, soldout_btn, items_archive_btn, discontinued_btn);
-        displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
+        displayAll(staff_table, manage_table, archive_table, total_items, "all", total_items1);
     }//GEN-LAST:event_all_btnActionPerformed
 
     private void discontinued_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discontinued_btnActionPerformed
         status_selection(discontinued_btn, items_archive_btn, soldout_btn, all_btn);
-        displayAll(dashboard_table, manage_table, archive_table, total_items, "discontinued");
+        displayAll(staff_table, manage_table, archive_table, total_items, "discontinued", total_items1);
     }//GEN-LAST:event_discontinued_btnActionPerformed
 
     private void items_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_items_archive_btnActionPerformed
-        displayAll(dashboard_table, manage_table, archive_table, total_items, "archived");
+        displayAll(staff_table, manage_table, archive_table, total_items, "archived", total_items1);
         status_selection(items_archive_btn, soldout_btn, all_btn, discontinued_btn);
     }//GEN-LAST:event_items_archive_btnActionPerformed
 
@@ -1993,10 +2103,6 @@ public class staff_dashboard extends javax.swing.JFrame {
         cloth_type = "prelove";
         sorter.toggle(manage_table, cloth_type);
     }//GEN-LAST:event_prelove_btn1ActionPerformed
-
-    private void supplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier1ActionPerformed
-        sorter.searchResult(manage_table, supplier);
-    }//GEN-LAST:event_supplier1ActionPerformed
 
     private void size_option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_size_option1ActionPerformed
         sorter.searchResult(manage_table, size_option);
@@ -2018,7 +2124,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         color_option.setSelectedIndex(0);
         category.setSelectedIndex(0);
         supplier.setSelectedIndex(0);
-        displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
+        displayAll(staff_table, manage_table, archive_table, total_items, "all", total_items1);
     }//GEN-LAST:event_reset_btn1ActionPerformed
 
     private void manage_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manage_tableMouseClicked
@@ -2026,7 +2132,7 @@ public class staff_dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_manage_tableMouseClicked
 
     private void search_btn_manage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_btn_manage1KeyReleased
-        search.searchResult(manage_table, search_btn_manage);
+        search.searchResult(manage_table, search_btn_manage1);
     }//GEN-LAST:event_search_btn_manage1KeyReleased
 
     private void find_btn_manage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_btn_manage1ActionPerformed
@@ -2034,11 +2140,51 @@ public class staff_dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_find_btn_manage1ActionPerformed
 
     private void add_to_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_to_archive_btnActionPerformed
-        update_item.status("archived", "Successfully archived Item!", "Restored", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
+        update_item.status("archived", "Successfully archived Item!", "Restored", get_item_id, user_id, staff_table, archive_table, manage_table, total_items);
         updateStatus();
-        displayAll(dashboard_table, manage_table, archive_table, total_items, "all");
+        displayAll(staff_table, manage_table, archive_table, total_items, "all", total_items1);
     }//GEN-LAST:event_add_to_archive_btnActionPerformed
+    public void get_item_info() {
+        try {
+            int rowIndex = manage_table.getSelectedRow();
+            if (rowIndex < 0) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Error: Please select an item first to edit.");
+            } else {
+                TableModel model = manage_table.getModel();
+                databaseConnector dbc = new databaseConnector();
+                ResultSet rs = dbc.getData("SELECT * FROM tbl_items WHERE item_SKU = " + model.getValueAt(rowIndex, 0));
+                if (rs.next()) {
+                    get_item_id = rs.getInt("item_SKU");
+                    item_status = rs.getString("item_status");
+                    if (item_status.equals("new")) {
+                        item_status = "new";
+                        edit_item_new.setSelected(true);
+                        edit_item_prelove.setSelected(true);
+                    } else {
+                        item_status = "false";
+                        edit_item_new.setSelected(false);
+                        edit_item_prelove.setSelected(true);
+                    }
+                    edit_item_category.setSelectedItem(rs.getString("item_category"));
+                    edit_item_size_option.setSelectedItem(rs.getString("item_size"));
+                    edit_item_color_option.setSelectedItem(rs.getString("item_color"));
+                    edit_item_material.setSelectedItem(rs.getString("item_material"));
+                    edit_item_supplier.setSelectedItem(rs.getString("item_supplier"));
+                    edit_item_status.setSelectedItem(rs.getString("item_status"));
+                    edit_item_name.setText(rs.getString("item_name"));
+                    edit_item_description.setText(rs.getString("item_description"));
+                    edit_item_sku.setText(rs.getString("item_SKU"));
+                    edit_item_quantity.setText(rs.getString("item_stocks"));
+                    edit_item_price.setText(rs.getString("item_price"));
 
+                    tabs.setSelectedIndex(3);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error retrieving data: " + e.getMessage());
+            System.out.println(e.getMessage());
+        }
+    }
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
         get_item_info();
     }//GEN-LAST:event_edit_btnActionPerformed
@@ -2066,7 +2212,7 @@ public class staff_dashboard extends javax.swing.JFrame {
     private void add_item_materialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_materialActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_add_item_materialActionPerformed
-
+    String item_status;
     private void add_item_newActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_item_newActionPerformed
         item_status = "new";
         add_item_new.setSelected(true);
@@ -2094,7 +2240,34 @@ public class staff_dashboard extends javax.swing.JFrame {
     private void add_item_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_add_item_nameFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_add_item_nameFocusGained
+    private void clear_add_forms() {
+        add_item_category.setSelectedItem(0);
+        add_item_size_option.setSelectedItem(0);
+        add_item_color_option.setSelectedItem(0);
+        add_item_material.setSelectedItem(0);
+        add_item_supplier.setSelectedItem(0);
+        add_item_description.setText("");
+        add_item_quantity.setText("");
+        add_item_price.setText("");
+        item_status = "";
+        add_item_new.setSelected(false);
+        add_item_prelove.setSelected(false);
+    }
 
+    private void clear_edit_forms() {
+        edit_item_category.setSelectedItem(0);
+        edit_item_size_option.setSelectedItem(0);
+        edit_item_color_option.setSelectedItem(0);
+        edit_item_material.setSelectedItem(0);
+        edit_item_supplier.setSelectedItem(0);
+        edit_item_status.setSelectedItem(0);
+        edit_item_description.setText("");
+        edit_item_quantity.setText("");
+        edit_item_price.setText("");
+        item_status = "";
+        edit_item_new.setSelected(false);
+        edit_item_prelove.setSelected(false);
+    }
     private void clear_btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_btn_addActionPerformed
         clear_add_forms();
     }//GEN-LAST:event_clear_btn_addActionPerformed
@@ -2111,19 +2284,19 @@ public class staff_dashboard extends javax.swing.JFrame {
         String price = add_item_price.getText();
 
         if ((category.isEmpty()
-            || size.isEmpty()
-            || price.equals("₱")
-            || price.isEmpty()
-            || quantity.isEmpty()
-            || item_status.isEmpty()
-            || color.isEmpty())
-        || item_description.isEmpty()
-        || material.isEmpty()
-        || supplier.isEmpty()
-        || item_name.isEmpty()
-        || material.isEmpty()) {
-        Notifications.getInstance().show(Notifications.Type.ERROR, "Please fill in all fields!");
-        return;
+                || size.isEmpty()
+                || price.equals("₱")
+                || price.isEmpty()
+                || quantity.isEmpty()
+                || item_status.isEmpty()
+                || color.isEmpty())
+                || item_description.isEmpty()
+                || material.isEmpty()
+                || supplier.isEmpty()
+                || item_name.isEmpty()
+                || material.isEmpty()) {
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Please fill in all fields!");
+            return;
         }
 
         if (item_name.length() > 20) {
@@ -2167,21 +2340,21 @@ public class staff_dashboard extends javax.swing.JFrame {
         try {
             databaseConnector dbc = new databaseConnector();
             String insertQuery = "INSERT INTO tbl_items"
-            + "(`item_name`,"
-            + "`item_stocks`,"
-            + "`item_price`,"
-            + "`item_category`,"
-            + "`item_size`,"
-            + "`item_color`,"
-            + "`item_material`,"
-            + "`item_supplier`,"
-            + "`added_by`,"
-            + "`total_sold`,"
-            + "`item_condition`,"
-            + "`item_status`,"
-            + "`item_description`,"
-            + "`date_added`)"
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, NOW())";
+                    + "(`item_name`,"
+                    + "`item_stocks`,"
+                    + "`item_price`,"
+                    + "`item_category`,"
+                    + "`item_size`,"
+                    + "`item_color`,"
+                    + "`item_material`,"
+                    + "`item_supplier`,"
+                    + "`added_by`,"
+                    + "`total_sold`,"
+                    + "`item_condition`,"
+                    + "`item_status`,"
+                    + "`item_description`,"
+                    + "`date_added`)"
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, NOW())";
             try (PreparedStatement insertStmt = dbc.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
                 insertStmt.setString(1, item_name);
                 insertStmt.setString(2, quantity);
@@ -2191,7 +2364,7 @@ public class staff_dashboard extends javax.swing.JFrame {
                 insertStmt.setString(6, color);
                 insertStmt.setString(7, material);
                 insertStmt.setString(8, supplier);
-                insertStmt.setInt(9, admin_id);
+                insertStmt.setInt(9, user_id);
                 insertStmt.setString(10, "0");
                 insertStmt.setString(11, item_status);
                 insertStmt.setString(12, "available");
@@ -2202,9 +2375,9 @@ public class staff_dashboard extends javax.swing.JFrame {
             Notifications.getInstance().show(Notifications.Type.SUCCESS, "item added successfully!");
 
             String action = "add item";
-            String details = "admin " + admin_id + " Successfully added a new item!";
-            actionLogs.recordAdminLogs(admin_id, action, details);
-            displayAll(dashboard_table, manage_table, archive_table, total_items, "available");
+            String details = "admin " + user_id + " Successfully added a new item!";
+            actionLogs.recordAdminLogs(user_id, action, details);
+            displayAll(staff_table, manage_table, archive_table, total_items, "available", total_items1);
             updateStatus();
             clear_add_forms();
             tabs.setSelectedIndex(1);
@@ -2286,108 +2459,108 @@ public class staff_dashboard extends javax.swing.JFrame {
             String price = edit_item_price.getText();
 
             if ((category.isEmpty()
-                || size.isEmpty()
-                || price.equals("₱")
-                || price.isEmpty()
-                || quantity.isEmpty()
-                || color.isEmpty())
-            || item_description.isEmpty()
-            || material.isEmpty()
-            || item_status.isEmpty()
-            || supplier.isEmpty()
-            || item_name.isEmpty()
-            || material.isEmpty()) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Please fill in all fields!");
-            return;
-        }
-
-        if (item_name.length() > 20) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 20 characters!");
-            return;
-        }
-
-        if (item_description.length() > 200) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 200 characters!");
-            return;
-        }
-
-        int price_numeric;
-        int stock_numeric;
-
-        try {
-            price_numeric = Integer.parseInt(price);
-        } catch (NumberFormatException ex) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be numeric!");
-            return;
-        }
-
-        try {
-            stock_numeric = Integer.parseInt(quantity);
-        } catch (NumberFormatException ex) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Quantity must be numeric!");
-            return;
-        }
-
-        if (price_numeric <= 0) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be greater than zero!");
-            add_item_price.setText("");
-            return;
-        }
-        if (stock_numeric <= 0) {
-            Notifications.getInstance().show(Notifications.Type.ERROR, "Stocks must be greater than zero!");
-            add_item_quantity.setText("");
-            return;
-        }
-
-        sql = "UPDATE tbl_items SET "
-        + "item_stocks=?, "
-        + "item_price=?, "
-        + "item_category=?, "
-        + "item_size=?, "
-        + "item_color=?, "
-        + "item_supplier=?, "
-        + "item_material=?, "
-        + "item_condition=?, "
-        + "item_status=?, "
-        + "item_description=?, "
-        + "item_name=? "
-        + "WHERE item_SKU=?";
-
-        String checkQuery = "SELECT COUNT(*) FROM tbl_items WHERE item_SKU = ?";
-        PreparedStatement checkStmt = dbc.getConnection().prepareStatement(checkQuery);
-        checkStmt.setInt(1, get_item_id);
-        ResultSet rs = checkStmt.executeQuery();
-        rs.next();
-        try (PreparedStatement pst = dbc.getConnection().prepareStatement(sql)) {
-            pst.setString(1, quantity);
-            pst.setString(2, price);
-            pst.setString(3, category);
-            pst.setString(4, size);
-            pst.setString(5, color);
-            pst.setString(6, supplier);
-            pst.setString(7, material);
-            pst.setString(8, item_status);
-            pst.setString(9, status);
-            pst.setString(10, item_description);
-            pst.setString(11, item_name);
-            pst.setInt(12, get_item_id);
-
-            int rowsUpdated = pst.executeUpdate();
-
-            if (rowsUpdated > 0) {
-                JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
-                displayAll(dashboard_table, manage_table, archive_table, total_items, "available");
-                updateStatus();
-            } else {
-                JOptionPane.showMessageDialog(null, "Failed to update data!");
+                    || size.isEmpty()
+                    || price.equals("₱")
+                    || price.isEmpty()
+                    || quantity.isEmpty()
+                    || color.isEmpty())
+                    || item_description.isEmpty()
+                    || material.isEmpty()
+                    || item_status.isEmpty()
+                    || supplier.isEmpty()
+                    || item_name.isEmpty()
+                    || material.isEmpty()) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Please fill in all fields!");
+                return;
             }
-        }
 
-        String action = "edit item";
-        String details = "admin " + admin_id + " successfully edited item " + get_item_id + "!";
-        actionLogs.recordAdminLogs(admin_id, action, details);
-        clear_edit_forms();
-        tabs.setSelectedIndex(1);
+            if (item_name.length() > 20) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 20 characters!");
+                return;
+            }
+
+            if (item_description.length() > 200) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Item name must not exceed 200 characters!");
+                return;
+            }
+
+            int price_numeric;
+            int stock_numeric;
+
+            try {
+                price_numeric = Integer.parseInt(price);
+            } catch (NumberFormatException ex) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be numeric!");
+                return;
+            }
+
+            try {
+                stock_numeric = Integer.parseInt(quantity);
+            } catch (NumberFormatException ex) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Quantity must be numeric!");
+                return;
+            }
+
+            if (price_numeric <= 0) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Price must be greater than zero!");
+                add_item_price.setText("");
+                return;
+            }
+            if (stock_numeric <= 0) {
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Stocks must be greater than zero!");
+                add_item_quantity.setText("");
+                return;
+            }
+
+            sql = "UPDATE tbl_items SET "
+                    + "item_stocks=?, "
+                    + "item_price=?, "
+                    + "item_category=?, "
+                    + "item_size=?, "
+                    + "item_color=?, "
+                    + "item_supplier=?, "
+                    + "item_material=?, "
+                    + "item_condition=?, "
+                    + "item_status=?, "
+                    + "item_description=?, "
+                    + "item_name=? "
+                    + "WHERE item_SKU=?";
+
+            String checkQuery = "SELECT COUNT(*) FROM tbl_items WHERE item_SKU = ?";
+            PreparedStatement checkStmt = dbc.getConnection().prepareStatement(checkQuery);
+            checkStmt.setInt(1, get_item_id);
+            ResultSet rs = checkStmt.executeQuery();
+            rs.next();
+            try (PreparedStatement pst = dbc.getConnection().prepareStatement(sql)) {
+                pst.setString(1, quantity);
+                pst.setString(2, price);
+                pst.setString(3, category);
+                pst.setString(4, size);
+                pst.setString(5, color);
+                pst.setString(6, supplier);
+                pst.setString(7, material);
+                pst.setString(8, item_status);
+                pst.setString(9, status);
+                pst.setString(10, item_description);
+                pst.setString(11, item_name);
+                pst.setInt(12, get_item_id);
+
+                int rowsUpdated = pst.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    JOptionPane.showMessageDialog(null, "Data Updated Successfully!");
+                    displayAll(staff_table, manage_table, archive_table, total_items, "available", total_items1);
+                    updateStatus();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to update data!");
+                }
+            }
+
+            String action = "edit item";
+            String details = "admin " + user_id + " successfully edited item " + get_item_id + "!";
+            actionLogs.recordAdminLogs(user_id, action, details);
+            clear_edit_forms();
+            tabs.setSelectedIndex(1);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "SQL Error updating data: " + e.getMessage());
             System.out.println(e.getMessage());
@@ -2402,20 +2575,61 @@ public class staff_dashboard extends javax.swing.JFrame {
     private void find_btn_archiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_find_btn_archiveActionPerformed
         search.searchResult(archive_table, search_btn_archive);
     }//GEN-LAST:event_find_btn_archiveActionPerformed
-
+    public void updateStatus() {
+        display_items.displayStatus(all, "available");
+        display_items.displayStatus(soldout, "soldout");
+        display_items.displayStatus(archived1, "archived");
+        display_items.displayStatus(discontinued1, "discontinued");
+    }
     private void discontinue_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discontinue_archive_btnActionPerformed
-        update_item.status("discontinue", "Successfully discontinued Item!", "discontinued", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
+        update_item.status("discontinue", "Successfully discontinued Item!", "discontinued", get_item_id, user_id, staff_table, archive_table, manage_table, total_items);
         updateStatus();
     }//GEN-LAST:event_discontinue_archive_btnActionPerformed
 
     private void restore_archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restore_archive_btnActionPerformed
-        update_item.status("available", "Successfully restored Item!", "restored", get_item_id, admin_id, dashboard_table, archive_table, manage_table, total_items);
+        update_item.status("available", "Successfully restored Item!", "restored", get_item_id, user_id, staff_table, archive_table, manage_table, total_items);
         updateStatus();
     }//GEN-LAST:event_restore_archive_btnActionPerformed
 
     private void archive_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archive_tableMouseClicked
         get_id(archive_table);
     }//GEN-LAST:event_archive_tableMouseClicked
+
+    private void manage_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_btnActionPerformed
+        handleButtonSelection(1, manage_btn, dashboard_btn, archive_btn);
+        updateStatus();
+    }//GEN-LAST:event_manage_btnActionPerformed
+
+    private void archive_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archive_btnActionPerformed
+        handleButtonSelection(4, archive_btn, dashboard_btn, manage_btn);
+        updateStatus();
+    }//GEN-LAST:event_archive_btnActionPerformed
+
+    private void supplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier1ActionPerformed
+        sorter.searchResult(manage_table, supplier);
+    }//GEN-LAST:event_supplier1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        tabs.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        PanelPrinter panelPrinter = new PanelPrinter(print_receipt.print_this);
+
+        print_receipt yawa = new print_receipt();
+
+        yawa.total.setText(String.valueOf("₱" + total_pay));
+        yawa.total_pay.setText(String.valueOf("₱" + total_pay));
+        yawa.cash.setText(String.valueOf("₱" + cash));
+        yawa.change.setText(String.valueOf("₱" + total_change));
+        yawa.item_name.setText(total_quantity + "x " + itemName + " ");
+        panelPrinter.printPanel();
+        
+        total_pay = 0;
+        total_quantity = 0;
+        total_change = 0;
+        cash = 0;
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2449,6 +2663,7 @@ public class staff_dashboard extends javax.swing.JFrame {
     private javax.swing.JButton add_to_archive_btn;
     private javax.swing.JLabel all;
     private javax.swing.JToggleButton all_btn;
+    private javax.swing.JToggleButton archive_btn;
     private javax.swing.JTable archive_table;
     private javax.swing.JPanel archive_table_container;
     private javax.swing.JLabel archived;
@@ -2598,6 +2813,7 @@ public class staff_dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JToggleButton logout_btn;
+    private javax.swing.JToggleButton manage_btn;
     private javax.swing.JTable manage_table;
     private javax.swing.JPanel manage_table_container;
     private javax.swing.JPanel manage_table_container1;
