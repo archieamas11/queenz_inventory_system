@@ -14,6 +14,10 @@ import config.display_time;
 import config.flatlaftTable;
 import config.search;
 import config.sorter;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +33,20 @@ import javax.swing.JToggleButton;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.TableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 import raven.toast.Notifications;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.*;
+import piechart.flatlaf;
+import piechart.show;
 
 /**
  *
@@ -37,9 +54,6 @@ import raven.toast.Notifications;
  */
 public class admin_dashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form admin
-     */
     int admin_id = UserManager.getLoggedInUserId();
 
     public admin_dashboard() {
@@ -66,7 +80,6 @@ public class admin_dashboard extends javax.swing.JFrame {
         display_items.precentage_bar_for_total_profit(profit_percentage_bar, profit_percentage);
         display_items.percentage_bar_for_total_expense(expense_percentage_bar, expense_percentage);
         display_items.percentage_bar_for_total_items(jProgressBar2, sds);
-
         updateStatus();
     }
 
@@ -133,6 +146,9 @@ public class admin_dashboard extends javax.swing.JFrame {
         profit_percentage_bar = new javax.swing.JProgressBar();
         jLabel37 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        show_piechart = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel60 = new javax.swing.JLabel();
@@ -290,6 +306,54 @@ public class admin_dashboard extends javax.swing.JFrame {
         accounts_table = new javax.swing.JTable();
         discontinue_archive_btn1 = new javax.swing.JButton();
         restore_archive_btn1 = new javax.swing.JButton();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel122 = new javax.swing.JLabel();
+        jProgressBar27 = new javax.swing.JProgressBar();
+        jProgressBar28 = new javax.swing.JProgressBar();
+        jProgressBar29 = new javax.swing.JProgressBar();
+        jProgressBar30 = new javax.swing.JProgressBar();
+        jProgressBar31 = new javax.swing.JProgressBar();
+        jProgressBar32 = new javax.swing.JProgressBar();
+        jProgressBar33 = new javax.swing.JProgressBar();
+        jProgressBar34 = new javax.swing.JProgressBar();
+        jProgressBar35 = new javax.swing.JProgressBar();
+        jProgressBar36 = new javax.swing.JProgressBar();
+        jProgressBar37 = new javax.swing.JProgressBar();
+        jProgressBar38 = new javax.swing.JProgressBar();
+        jLabel123 = new javax.swing.JLabel();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        jLabel127 = new javax.swing.JLabel();
+        jLabel128 = new javax.swing.JLabel();
+        jLabel129 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        jLabel131 = new javax.swing.JLabel();
+        jLabel132 = new javax.swing.JLabel();
+        jLabel133 = new javax.swing.JLabel();
+        jLabel134 = new javax.swing.JLabel();
+        jLabel135 = new javax.swing.JLabel();
+        jLabel136 = new javax.swing.JLabel();
+        jLabel137 = new javax.swing.JLabel();
+        jLabel138 = new javax.swing.JLabel();
+        jLabel139 = new javax.swing.JLabel();
+        jLabel140 = new javax.swing.JLabel();
+        jLabel141 = new javax.swing.JLabel();
+        jLabel142 = new javax.swing.JLabel();
+        jLabel143 = new javax.swing.JLabel();
+        jLabel144 = new javax.swing.JLabel();
+        jLabel145 = new javax.swing.JLabel();
+        jLabel146 = new javax.swing.JLabel();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel147 = new javax.swing.JLabel();
+        display_piechart = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel148 = new javax.swing.JLabel();
+        yawa = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        show = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -551,8 +615,38 @@ public class admin_dashboard extends javax.swing.JFrame {
         jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 40));
 
         jButton1.setText("View more");
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 13, 110, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 110, 30));
         UXmethods.RoundBorders.setArcStyle(jPanel1, 20);
+
+        show_piechart.setText("View more");
+        show_piechart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_piechartActionPerformed(evt);
+            }
+        });
+        jPanel5.add(show_piechart, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 110, 30));
+        UXmethods.RoundBorders.setArcStyle(jPanel1, 20);
+
+        jButton2.setText("Test");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
 
         dashboardddddddddddddddddddd.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 620, 290));
         UXmethods.RoundBorders.setArcStyle(jPanel5, 20);
@@ -1820,6 +1914,201 @@ public class admin_dashboard extends javax.swing.JFrame {
 
         tabs.addTab("accouts_tab", acountssssssssssssssssssssssssss);
 
+        jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel30.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel122.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel122.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel122.setText("December");
+        jPanel30.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 90, 40));
+        jPanel30.add(jProgressBar27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 420, 20));
+        jPanel30.add(jProgressBar28, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 420, 20));
+        jPanel30.add(jProgressBar29, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 420, 20));
+        jPanel30.add(jProgressBar30, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 420, 20));
+        jPanel30.add(jProgressBar31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 420, 20));
+        jPanel30.add(jProgressBar32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 420, 20));
+        jPanel30.add(jProgressBar33, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 420, 20));
+        jPanel30.add(jProgressBar34, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 420, 20));
+        jPanel30.add(jProgressBar35, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 420, 20));
+        jPanel30.add(jProgressBar36, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 420, 20));
+        jPanel30.add(jProgressBar37, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 420, 20));
+        jPanel30.add(jProgressBar38, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 420, 20));
+
+        jLabel123.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel123.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel123.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel123.setText("₱20312");
+        jPanel30.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 50, 40));
+
+        jLabel124.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel124.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel124.setText("January");
+        jPanel30.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 90, 40));
+
+        jLabel125.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel125.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel125.setText("February");
+        jPanel30.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 90, 40));
+
+        jLabel126.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel126.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel126.setText("March");
+        jPanel30.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 40));
+
+        jLabel127.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel127.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel127.setText("April");
+        jPanel30.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 40));
+
+        jLabel128.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel128.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel128.setText("May");
+        jPanel30.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 40));
+
+        jLabel129.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel129.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel129.setText("June");
+        jPanel30.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 40));
+
+        jLabel130.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel130.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel130.setText("July");
+        jPanel30.add(jLabel130, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, 40));
+
+        jLabel131.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel131.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel131.setText("August");
+        jPanel30.add(jLabel131, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 90, 40));
+
+        jLabel132.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel132.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel132.setText("September");
+        jPanel30.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 40));
+
+        jLabel133.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel133.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel133.setText("October");
+        jPanel30.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 40));
+
+        jLabel134.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel134.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel134.setText("November");
+        jPanel30.add(jLabel134, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 90, 40));
+
+        jLabel135.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel135.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel135.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel135.setText("₱202");
+        jPanel30.add(jLabel135, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 50, 40));
+
+        jLabel136.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel136.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel136.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel136.setText("₱202");
+        jPanel30.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 50, 40));
+
+        jLabel137.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel137.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel137.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel137.setText("₱202");
+        jPanel30.add(jLabel137, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 50, 40));
+
+        jLabel138.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel138.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel138.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel138.setText("₱202");
+        jPanel30.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 50, 40));
+
+        jLabel139.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel139.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel139.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel139.setText("₱202");
+        jPanel30.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 50, 40));
+
+        jLabel140.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel140.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel140.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel140.setText("₱202");
+        jPanel30.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 50, 40));
+
+        jLabel141.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel141.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel141.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel141.setText("₱202");
+        jPanel30.add(jLabel141, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 50, 40));
+
+        jLabel142.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel142.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel142.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel142.setText("₱202");
+        jPanel30.add(jLabel142, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 50, 40));
+
+        jLabel143.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel143.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel143.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel143.setText("₱202");
+        jPanel30.add(jLabel143, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 50, 40));
+
+        jLabel144.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel144.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel144.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel144.setText("₱20312");
+        jPanel30.add(jLabel144, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 50, 40));
+
+        jLabel145.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel145.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel145.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel145.setText("₱20312");
+        jPanel30.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 50, 40));
+
+        jLabel146.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel146.setText("MONTLY INCOME");
+        jPanel30.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 40));
+
+        jPanel21.add(jPanel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 660, 440));
+
+        jPanel26.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel147.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel147.setText("ITEM INCOME");
+        jPanel26.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 390, 40));
+
+        display_piechart.setLayout(new java.awt.BorderLayout());
+        jPanel26.add(display_piechart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 610, 360));
+
+        jPanel21.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 510, 650, 440));
+
+        jPanel25.setBackground(new java.awt.Color(255, 229, 246));
+        jPanel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel148.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel148.setText("ITEM PROFIT");
+        jPanel25.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 390, 40));
+
+        yawa.setOpaque(false);
+        yawa.setLayout(new java.awt.BorderLayout());
+        jPanel25.add(yawa, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 330, 250));
+
+        jPanel21.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 390, 330));
+
+        jPanel23.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        show.setLayout(new java.awt.BorderLayout());
+        jPanel23.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 890, 300));
+
+        jPanel21.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 930, 330));
+
+        jPanel20.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 970));
+
+        tabs.addTab("graph_bar", jPanel20);
+
         parent_of_the_parent.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 1010));
 
         getContentPane().add(parent_of_the_parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 976));
@@ -2492,6 +2781,130 @@ public class admin_dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_not_popular_tableMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultCategoryDataset barchartdata = new DefaultCategoryDataset();
+        barchartdata.setValue(20000, "Amount", "January");
+        barchartdata.setValue(15000, "Amount", "February");
+        barchartdata.setValue(18000, "Amount", "March");
+        barchartdata.setValue(22000, "Amount", "April");
+        barchartdata.setValue(25000, "Amount", "May");
+        barchartdata.setValue(21000, "Amount", "June");    // Example for June
+        barchartdata.setValue(23000, "Amount", "July");    // Example for July
+        barchartdata.setValue(24000, "Amount", "August");   // Example for August
+        barchartdata.setValue(22000, "Amount", "September"); // Example for September
+        barchartdata.setValue(25000, "Amount", "October");   // Example for October
+        barchartdata.setValue(26000, "Amount", "November");   // Example for November
+        barchartdata.setValue(27000, "Amount", "December");    // Example for December
+
+        // Create the bar chart
+        JFreeChart barchart = ChartFactory.createBarChart(
+                "Monthly Amount Overview", // Chart title
+                "Months", // X-axis label
+                "Amount (in PHP)", // Y-axis label
+                barchartdata, // Dataset
+                PlotOrientation.VERTICAL, // Orientation
+                true, // Include legend
+                true, // Tooltips
+                false // URLs
+        );
+
+        barchart.setBackgroundPaint(new Color(0, 0, 0, 0)); // Transparent background for the chart
+        CategoryPlot barchrt = barchart.getCategoryPlot();
+        barchrt.setBackgroundPaint(new Color(0, 0, 0, 0)); // Transparent background for the plot
+        barchrt.setDomainGridlinePaint(new Color(220, 220, 220)); // Light gray gridlines
+        barchrt.setRangeGridlinePaint(new Color(220, 220, 220)); // Light gray gridlines
+
+        // Customize the bar renderer
+        BarRenderer renderer = new BarRenderer();
+        renderer.setDrawBarOutline(false); // No outlines for bars
+
+        // Set vibrant colors for the bars
+        renderer.setSeriesPaint(0, new Color(255, 229, 246)); // Green
+        renderer.setSeriesPaint(1, new Color(33, 150, 243)); // Blue
+        renderer.setSeriesPaint(2, new Color(255, 193, 7)); // Yellow
+        renderer.setSeriesPaint(3, new Color(244, 67, 54)); // Red
+        renderer.setSeriesPaint(4, new Color(156, 39, 176)); // Purple
+        renderer.setSeriesPaint(5, new Color(255, 87, 34)); // Deep Orange
+        renderer.setSeriesPaint(6, new Color(0, 188, 212)); // Cyan
+        renderer.setSeriesPaint(7, new Color(96, 125, 139)); // Blue Grey
+        renderer.setSeriesPaint(8, new Color(255, 235, 59)); // Yellow
+        renderer.setSeriesPaint(9, new Color(255, 82, 82)); // Light Red
+        renderer.setSeriesPaint(10, new Color(139, 195, 74)); // Light Green
+        renderer.setSeriesPaint(11, new Color(255, 64, 129)); // Pink
+
+        // Set the renderer to the plot
+        barchrt.setRenderer(renderer);
+
+        // Enable data labels on the bars
+        renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+        renderer.setBaseItemLabelsVisible(true);
+
+        // Set font for title and axis labels
+        Font titleFont = new Font("Roboto", Font.BOLD, 16); // Use a modern font
+        barchart.getTitle().setFont(titleFont);
+        barchrt.getDomainAxis().setLabelFont(new Font("Roboto", Font.PLAIN, 12));
+        barchrt.getRangeAxis().setLabelFont(new Font("Roboto", Font.PLAIN, 12));
+
+        // Create and add the chart panel
+        ChartPanel barPanel = new ChartPanel(barchart);
+
+        // Set preferred size for the chart panel
+        barPanel.setPreferredSize(new Dimension(800, 600)); // Set width to 800 and height to 600
+
+        display_piechart.removeAll();
+        display_piechart.add(barPanel, BorderLayout.CENTER);
+        display_piechart.validate();
+
+        // Select the appropriate tab
+        tabs.setSelectedIndex(6);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
+    private void show_piechartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_piechartActionPerformed
+        //piechart.yawa pieChart = new piechart.yawa();
+
+        // Set the layout and add the pie chart to the panel
+        //piechart_jpanel.removeAll(); // Clear the previous components
+        //piechart_jpanel.setLayout(new BorderLayout());
+        //piechart_jpanel.add(pieChart, BorderLayout.CENTER); // Add the PieChart
+        //piechart_jpanel.validate(); // Refresh the panel to display the pie chart
+        //piechart_jpanel.repaint();  // Repaint the panel
+        tabs.setSelectedIndex(6);
+    }//GEN-LAST:event_show_piechartActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        flatlaf pieChartPanel = new flatlaf();
+        show pieChartPanel1 = new show();// Create an instance of the flatlaf class (Pie chart)
+        yawa.removeAll(); // Clear previous components
+        yawa.setLayout(new BorderLayout());
+
+        yawa.add(pieChartPanel, BorderLayout.CENTER); // Add the PieChart panel
+        yawa.validate(); // Refresh the panel to display the pie chart
+        yawa.repaint();  // Repaint the panel
+        // Create an instance of the flatlaf class (Pie chart)
+
+        show.removeAll(); // Clear previous components
+        show.setLayout(new BorderLayout());
+
+        show.add(pieChartPanel1, BorderLayout.CENTER); // Add the PieChart panel
+        show.validate(); // Refresh the panel to display the pie chart
+        show.repaint();
+        tabs.setSelectedIndex(6);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        show pieChartPanel = new show(); // Create an instance of the flatlaf class (Pie chart)
+
+        show.removeAll(); // Clear previous components
+        show.setLayout(new BorderLayout());
+
+        show.add(pieChartPanel, BorderLayout.CENTER); // Add the PieChart panel
+        show.validate(); // Refresh the panel to display the pie chart
+        show.repaint();
+        tabs.setSelectedIndex(6);
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2501,8 +2914,10 @@ public class admin_dashboard extends javax.swing.JFrame {
             java.awt.EventQueue.invokeLater(() -> {
                 new admin_dashboard().setVisible(true);
             });
+
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(admin_dashboard.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(admin_dashboard.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -2545,6 +2960,7 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JButton discontinue_archive_btn1;
     private javax.swing.JLabel discontinued;
     private javax.swing.JToggleButton discontinued_btn;
+    private javax.swing.JPanel display_piechart;
     private javax.swing.JButton edit_btn;
     private javax.swing.JComboBox<String> edit_item_category;
     private javax.swing.JComboBox<String> edit_item_color_option;
@@ -2583,12 +2999,41 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JButton find_btn_manage;
     private javax.swing.JToggleButton items_archive_btn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
+    private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel134;
+    private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel136;
+    private javax.swing.JLabel jLabel137;
+    private javax.swing.JLabel jLabel138;
+    private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel140;
+    private javax.swing.JLabel jLabel141;
+    private javax.swing.JLabel jLabel142;
+    private javax.swing.JLabel jLabel143;
+    private javax.swing.JLabel jLabel144;
+    private javax.swing.JLabel jLabel145;
+    private javax.swing.JLabel jLabel146;
+    private javax.swing.JLabel jLabel147;
+    private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -2654,8 +3099,14 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -2663,6 +3114,18 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JProgressBar jProgressBar27;
+    private javax.swing.JProgressBar jProgressBar28;
+    private javax.swing.JProgressBar jProgressBar29;
+    private javax.swing.JProgressBar jProgressBar30;
+    private javax.swing.JProgressBar jProgressBar31;
+    private javax.swing.JProgressBar jProgressBar32;
+    private javax.swing.JProgressBar jProgressBar33;
+    private javax.swing.JProgressBar jProgressBar34;
+    private javax.swing.JProgressBar jProgressBar35;
+    private javax.swing.JProgressBar jProgressBar36;
+    private javax.swing.JProgressBar jProgressBar37;
+    private javax.swing.JProgressBar jProgressBar38;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -2695,6 +3158,8 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField search_btn_archive1;
     private javax.swing.JTextField search_btn_archive2;
     private javax.swing.JTextField search_btn_manage;
+    private javax.swing.JPanel show;
+    private javax.swing.JButton show_piechart;
     private javax.swing.JComboBox<String> size_option;
     private javax.swing.JLabel soldout;
     private javax.swing.JToggleButton soldout_btn;
@@ -2704,5 +3169,6 @@ public class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel total_items;
     private javax.swing.JLabel total_profit;
     private javax.swing.JLabel total_sold;
+    private javax.swing.JPanel yawa;
     // End of variables declaration//GEN-END:variables
 }
