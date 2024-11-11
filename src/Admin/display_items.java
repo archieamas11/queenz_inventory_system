@@ -181,6 +181,17 @@ public class display_items {
         display_query(table, query);
     }
 
+    public static void admin_notification(JTable table) {
+        String query = "SELECT "
+                + "item_SKU as `SKU`, "
+                + "item_name as `Item name`, "
+                + "item_stocks as `Stock left` "
+                + "FROM tbl_items "
+                + "WHERE item_stocks < 1";
+
+        display_query(table, query);
+    }
+
     public static void accounts(JTable table) {
         String query = "SELECT "
                 + "account_id as `Account #`, "

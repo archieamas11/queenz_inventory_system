@@ -63,6 +63,8 @@ public final class admin_dashboard extends javax.swing.JFrame {
         display_items.precentage_bar_for_total_profit(profit_percentage_bar, profit_percentage);
         display_items.percentage_bar_for_total_expense(expense_percentage_bar, expense_percentage);
         display_items.percentage_bar_for_total_items(jProgressBar2, sds);
+        display_items.admin_notification(notifcation_table);
+        get_notifcation();
         updateStatus();
     }
 
@@ -87,6 +89,27 @@ public final class admin_dashboard extends javax.swing.JFrame {
         display_chart.createLineChart(display_linechart);
         display_chart.createLineChart(display_linechart);
         display_chart.createBarChart(jPanel27, jPanel26);
+    }
+
+    int stock_left = 0;
+
+    public void get_notifcation() {
+        try {
+            databaseConnector dbc = new databaseConnector();
+            ResultSet rs = dbc.getData("SELECT * FROM tbl_items");
+
+            if (rs.next()) {
+                stock_left = rs.getInt("item_stocks");
+                if (stock_left > 1) {
+                    empty_notification.setText("Empty");
+                } else {
+                    empty_notification.setText("");
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error retrieving data: " + e.getMessage());
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -139,9 +162,11 @@ public final class admin_dashboard extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jPanel22 = new javax.swing.JPanel();
-        jLabel60 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
+        empty_notification = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        notifcation_table = new javax.swing.JTable();
+        jLabel66 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel62 = new javax.swing.JLabel();
@@ -578,19 +603,45 @@ public final class admin_dashboard extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 229, 246));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel22.setBackground(new java.awt.Color(235, 235, 235));
-        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel63.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel63.setText("Low stock count items");
+        jPanel6.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 20));
 
-        jLabel60.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel60.setText("Empty");
-        jPanel22.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 40));
+        empty_notification.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        empty_notification.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        empty_notification.setText("Empty");
+        jPanel6.add(empty_notification, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 200, 40));
 
-        jPanel6.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 670));
+        jScrollPane15.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jLabel63.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel63.setText("Notifications");
-        jPanel6.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 40));
+        notifcation_table.setAutoCreateRowSorter(true);
+        notifcation_table.setBackground(new java.awt.Color(235, 235, 235));
+        notifcation_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        notifcation_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        notifcation_table.setFocusable(false);
+        notifcation_table.setGridColor(new java.awt.Color(0, 0, 0));
+        notifcation_table.setSelectionBackground(new java.awt.Color(255, 229, 246));
+        notifcation_table.getTableHeader().setResizingAllowed(false);
+        notifcation_table.getTableHeader().setReorderingAllowed(false);
+        notifcation_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                notifcation_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(notifcation_table);
+
+        jPanel6.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 200, 630));
+
+        jLabel66.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel66.setText("Notifications");
+        jPanel6.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 40));
 
         dashboardddddddddddddddddddd.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 160, 240, 750));
         UXmethods.RoundBorders.setArcStyle(jPanel6, 20);
@@ -867,7 +918,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         size_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIZE OPTIONS", "S", "M", "L", "XL", "XXL" }));
         size_option.setSelectedIndex(0);
         size_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        size_option.setOpaque(true);
         size_option.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 size_optionActionPerformed(evt);
@@ -1184,7 +1234,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         add_item_supplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT SUPPLIER", "A", "B", "C", "D" }));
         add_item_supplier.setSelectedIndex(0);
         add_item_supplier.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        add_item_supplier.setOpaque(true);
         add_item_supplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_item_supplierActionPerformed(evt);
@@ -1204,7 +1253,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         add_item_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT CATEGORY", "Casual", "Formal", "Activewear" }));
         add_item_category.setSelectedIndex(0);
         add_item_category.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        add_item_category.setOpaque(true);
         add_item_category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_item_categoryActionPerformed(evt);
@@ -1224,7 +1272,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         add_item_color_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT COLOR", "Blue", "Green", "Yellow", "Black", "Orange" }));
         add_item_color_option.setSelectedIndex(0);
         add_item_color_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        add_item_color_option.setOpaque(true);
         add_item_color_option.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_item_color_optionActionPerformed(evt);
@@ -1244,7 +1291,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         add_item_size_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIZE OPTIONS", "S", "M", "L", "XL", "XXL" }));
         add_item_size_option.setSelectedIndex(0);
         add_item_size_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        add_item_size_option.setOpaque(true);
         add_item_size_option.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_item_size_optionActionPerformed(evt);
@@ -1264,7 +1310,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         add_item_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT MATERIAL", "100% Cotton", "Polyester blend", "Leather" }));
         add_item_material.setSelectedIndex(0);
         add_item_material.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        add_item_material.setOpaque(true);
         add_item_material.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_item_materialActionPerformed(evt);
@@ -1417,7 +1462,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         edit_item_supplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT SUPPLIER", "A", "B", "C", "D" }));
         edit_item_supplier.setSelectedIndex(0);
         edit_item_supplier.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        edit_item_supplier.setOpaque(true);
         edit_item_supplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_item_supplierActionPerformed(evt);
@@ -1437,7 +1481,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         edit_item_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT CATEGORY", "Casual", "Formal", "Activewear" }));
         edit_item_category.setSelectedIndex(0);
         edit_item_category.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        edit_item_category.setOpaque(true);
         edit_item_category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_item_categoryActionPerformed(evt);
@@ -1457,7 +1500,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         edit_item_color_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT COLOR", "Blue", "Green", "Yellow", "Black", "Orange" }));
         edit_item_color_option.setSelectedIndex(0);
         edit_item_color_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        edit_item_color_option.setOpaque(true);
         edit_item_color_option.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_item_color_optionActionPerformed(evt);
@@ -1477,7 +1519,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         edit_item_size_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIZE OPTIONS", "S", "M", "L", "XL", "XXL" }));
         edit_item_size_option.setSelectedIndex(0);
         edit_item_size_option.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        edit_item_size_option.setOpaque(true);
         edit_item_size_option.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_item_size_optionActionPerformed(evt);
@@ -1497,7 +1538,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         edit_item_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT MATERIAL", "100% Cotton", "Polyester blend", "Leather" }));
         edit_item_material.setSelectedIndex(0);
         edit_item_material.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        edit_item_material.setOpaque(true);
         edit_item_material.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_item_materialActionPerformed(evt);
@@ -1554,7 +1594,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
         edit_item_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT STATUS", "available", "archived", "solout", "discontinued" }));
         edit_item_status.setSelectedIndex(0);
         edit_item_status.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        edit_item_status.setOpaque(true);
         edit_item_status.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_item_statusActionPerformed(evt);
@@ -2553,6 +2592,10 @@ public final class admin_dashboard extends javax.swing.JFrame {
         tabs.setSelectedIndex(6);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void notifcation_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notifcation_tableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notifcation_tableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2627,6 +2670,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> edit_item_status;
     private javax.swing.JComboBox<String> edit_item_supplier;
     private javax.swing.JPanel edittttttttttttttttttttttttttttt;
+    private javax.swing.JLabel empty_notification;
     private javax.swing.JLabel expense_percentage;
     private javax.swing.JProgressBar expense_percentage_bar;
     private javax.swing.JLabel expense_total;
@@ -2700,12 +2744,12 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2723,7 +2767,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
@@ -2739,6 +2782,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
@@ -2750,6 +2794,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel manageeeeeeeeeeeeeeeeeeeee;
     private javax.swing.JToggleButton new_btn;
     private javax.swing.JTable not_popular_table;
+    private javax.swing.JTable notifcation_table;
     private javax.swing.JPanel parent_of_the_parent;
     private javax.swing.JTable popular_table;
     private javax.swing.JToggleButton prelove_btn;
