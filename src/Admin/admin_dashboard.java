@@ -8,6 +8,7 @@ import accounts.Login;
 import accounts.UserManager;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
+import config.PanelPrinter;
 import config.actionLogs;
 import config.databaseConnector;
 import config.display_time;
@@ -15,6 +16,7 @@ import config.flatlaftTable;
 import config.search;
 import config.sorter;
 import java.awt.geom.RoundRectangle2D;
+import java.awt.print.PrinterException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -224,6 +226,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         total_items = new javax.swing.JLabel();
+        print_table = new javax.swing.JButton();
         addddddddddddddddddddddddddddddddd = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -321,7 +324,8 @@ public final class admin_dashboard extends javax.swing.JFrame {
         discontinue_archive_btn1 = new javax.swing.JButton();
         restore_archive_btn1 = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
-        jPanel21 = new javax.swing.JPanel();
+        print_table1 = new javax.swing.JButton();
+        print_panel = new javax.swing.JPanel();
         display_piechart = new javax.swing.JPanel();
         display_linechart = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
@@ -595,7 +599,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 110, 40));
-        UXmethods.RoundBorders.setArcStyle(jPanel1, 20);
+        UXmethods.RoundBorders.setArcStyle(jButton1, 20);
 
         dashboardddddddddddddddddddd.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 620, 290));
         UXmethods.RoundBorders.setArcStyle(jPanel5, 20);
@@ -1096,6 +1100,18 @@ public final class admin_dashboard extends javax.swing.JFrame {
 
         manageeeeeeeeeeeeeeeeeeeee.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 140, 40));
         UXmethods.RoundBorders.setArcStyle(jPanel2, 30);
+
+        print_table.setBackground(new java.awt.Color(238, 238, 238));
+        print_table.setText("print");
+        print_table.setBorder(null);
+        print_table.setBorderPainted(false);
+        print_table.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print_tableActionPerformed(evt);
+            }
+        });
+        manageeeeeeeeeeeeeeeeeeeee.add(print_table, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(print_table, 30);
 
         tabs.addTab("manage", manageeeeeeeeeeeeeeeeeeeee);
 
@@ -1877,40 +1893,53 @@ public final class admin_dashboard extends javax.swing.JFrame {
 
         tabs.addTab("accouts_tab", acountssssssssssssssssssssssssss);
 
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        print_table1.setBackground(new java.awt.Color(238, 238, 238));
+        print_table1.setText("print");
+        print_table1.setBorder(null);
+        print_table1.setBorderPainted(false);
+        print_table1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print_table1ActionPerformed(evt);
+            }
+        });
+        jPanel20.add(print_table1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 120, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(print_table1, 30);
+
+        print_panel.setBackground(new java.awt.Color(255, 255, 255));
+        print_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         display_piechart.setBackground(new java.awt.Color(255, 229, 246));
         display_piechart.setLayout(new java.awt.BorderLayout());
-        jPanel21.add(display_piechart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 440, 270));
+        print_panel.add(display_piechart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 440, 270));
         UXmethods.RoundBorders.setArcStyle(display_piechart, 20);
 
         display_linechart.setBackground(new java.awt.Color(255, 229, 246));
         display_linechart.setLayout(new java.awt.BorderLayout());
-        jPanel21.add(display_linechart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 1340, 250));
+        print_panel.add(display_linechart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1340, 250));
         UXmethods.RoundBorders.setArcStyle(display_linechart, 20);
 
         jPanel26.setBackground(new java.awt.Color(255, 229, 246));
         jPanel26.setLayout(new java.awt.BorderLayout());
-        jPanel21.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 720, 660, 220));
+        print_panel.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 660, 220));
         UXmethods.RoundBorders.setArcStyle(jPanel26, 20);
 
         jPanel27.setBackground(new java.awt.Color(255, 229, 246));
         jPanel27.setLayout(new java.awt.BorderLayout());
-        jPanel21.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 660, 220));
+        print_panel.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 660, 220));
         UXmethods.RoundBorders.setArcStyle(jPanel27, 20);
 
         display_piechart3.setBackground(new java.awt.Color(255, 229, 246));
         display_piechart3.setLayout(new java.awt.BorderLayout());
-        jPanel21.add(display_piechart3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 160, 440, 270));
+        print_panel.add(display_piechart3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 440, 270));
 
         display_piechart2.setBackground(new java.awt.Color(255, 229, 246));
         display_piechart2.setLayout(new java.awt.BorderLayout());
-        jPanel21.add(display_piechart2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 420, 270));
+        print_panel.add(display_piechart2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 420, 270));
 
-        jPanel20.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 970));
+        jPanel20.add(print_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1380, 830));
 
         tabs.addTab("graph_bar", jPanel20);
 
@@ -2596,6 +2625,28 @@ public final class admin_dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_notifcation_tableMouseClicked
 
+    private void print_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_tableActionPerformed
+        try {
+            boolean complete = manage_table.print();
+            if (complete) {
+                // Show a success message
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Print Pomplete");
+            } else {
+                // Printing was canceled
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Printing Cancelled");
+
+            }
+        } catch (PrinterException pe) {
+            // Handle the printing error
+            Notifications.getInstance().show(Notifications.Type.WARNING, "Printing Failed!");
+        }
+    }//GEN-LAST:event_print_tableActionPerformed
+
+    private void print_table1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_table1ActionPerformed
+        PanelPrinter panelPrinter = new PanelPrinter(print_panel);
+        panelPrinter.printPanel();
+    }//GEN-LAST:event_print_table1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2766,7 +2817,6 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
@@ -2798,6 +2848,9 @@ public final class admin_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel parent_of_the_parent;
     private javax.swing.JTable popular_table;
     private javax.swing.JToggleButton prelove_btn;
+    private javax.swing.JPanel print_panel;
+    private javax.swing.JButton print_table;
+    private javax.swing.JButton print_table1;
     private javax.swing.JLabel profile_icon1;
     private javax.swing.JLabel profit_percentage;
     private javax.swing.JProgressBar profit_percentage_bar;
