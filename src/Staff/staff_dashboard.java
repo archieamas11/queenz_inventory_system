@@ -5,6 +5,7 @@
 package Staff;
 
 import static Admin.admin_dashboard.displayAll;
+import Admin.cell_num;
 import Admin.display_items;
 import Admin.update_item;
 import accounts.Login;
@@ -20,12 +21,15 @@ import config.print_receipt;
 import config.search;
 import config.sorter;
 import java.awt.geom.RoundRectangle2D;
+import java.awt.print.PrinterException;
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -170,6 +174,8 @@ public class staff_dashboard extends javax.swing.JFrame {
         add_to_archive_btn = new javax.swing.JButton();
         edit_btn = new javax.swing.JButton();
         add_btn = new javax.swing.JButton();
+        add_btn1 = new javax.swing.JButton();
+        print_table = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -1002,7 +1008,7 @@ public class staff_dashboard extends javax.swing.JFrame {
                 search_btn_manage1KeyReleased(evt);
             }
         });
-        jPanel11.add(search_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 300, 40));
+        jPanel11.add(search_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 210, 40));
         flatlaftTable.searchBar(search_btn_manage1);
         UXmethods.RoundBorders.setArcStyle(search_btn_manage1, 30);
 
@@ -1015,11 +1021,13 @@ public class staff_dashboard extends javax.swing.JFrame {
                 find_btn_manage1ActionPerformed(evt);
             }
         });
-        jPanel11.add(find_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 60, 40));
+        jPanel11.add(find_btn_manage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 60, 40));
         UXmethods.RoundBorders.setArcStyle(find_btn_manage1, 30);
 
         add_to_archive_btn.setBackground(new java.awt.Color(238, 238, 238));
-        add_to_archive_btn.setText("add to archive");
+        add_to_archive_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_to_archive_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-archive-18.png"))); // NOI18N
+        add_to_archive_btn.setText(" Archive");
         add_to_archive_btn.setBorder(null);
         add_to_archive_btn.setBorderPainted(false);
         add_to_archive_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -1027,11 +1035,13 @@ public class staff_dashboard extends javax.swing.JFrame {
                 add_to_archive_btnActionPerformed(evt);
             }
         });
-        jPanel11.add(add_to_archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 110, 140, 40));
+        jPanel11.add(add_to_archive_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, 110, 40));
         UXmethods.RoundBorders.setArcStyle(add_to_archive_btn, 30);
 
         edit_btn.setBackground(new java.awt.Color(238, 238, 238));
-        edit_btn.setText("edit item");
+        edit_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        edit_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-edit-18.png"))); // NOI18N
+        edit_btn.setText(" Edit");
         edit_btn.setBorder(null);
         edit_btn.setBorderPainted(false);
         edit_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -1039,11 +1049,13 @@ public class staff_dashboard extends javax.swing.JFrame {
                 edit_btnActionPerformed(evt);
             }
         });
-        jPanel11.add(edit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 110, 110, 40));
+        jPanel11.add(edit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 110, 110, 40));
         UXmethods.RoundBorders.setArcStyle(edit_btn, 30);
 
         add_btn.setBackground(new java.awt.Color(238, 238, 238));
-        add_btn.setText("add item");
+        add_btn.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-18.png"))); // NOI18N
+        add_btn.setText(" Add");
         add_btn.setBorder(null);
         add_btn.setBorderPainted(false);
         add_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -1051,8 +1063,36 @@ public class staff_dashboard extends javax.swing.JFrame {
                 add_btnActionPerformed(evt);
             }
         });
-        jPanel11.add(add_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 110, 110, 40));
+        jPanel11.add(add_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 110, 110, 40));
         UXmethods.RoundBorders.setArcStyle(add_btn, 30);
+
+        add_btn1.setBackground(new java.awt.Color(238, 238, 238));
+        add_btn1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        add_btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-excel-18.png"))); // NOI18N
+        add_btn1.setText(" Import");
+        add_btn1.setBorder(null);
+        add_btn1.setBorderPainted(false);
+        add_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(add_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 110, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(add_btn1, 30);
+
+        print_table.setBackground(new java.awt.Color(238, 238, 238));
+        print_table.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        print_table.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-print-18.png"))); // NOI18N
+        print_table.setText(" Print");
+        print_table.setBorder(null);
+        print_table.setBorderPainted(false);
+        print_table.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print_tableActionPerformed(evt);
+            }
+        });
+        jPanel11.add(print_table, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, 110, 40));
+        UXmethods.RoundBorders.setArcStyle(print_table, 30);
 
         confimation.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 980));
 
@@ -2631,6 +2671,36 @@ public class staff_dashboard extends javax.swing.JFrame {
         cash = 0;
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void add_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btn1ActionPerformed
+        // Open file chooser to select Excel file
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Select Excel File");
+        int userSelection = fileChooser.showOpenDialog(this);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToOpen = fileChooser.getSelectedFile();
+            // Call the method to import the data from the selected file
+            cell_num.importExcelData(fileToOpen);
+        }
+    }//GEN-LAST:event_add_btn1ActionPerformed
+
+    private void print_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_tableActionPerformed
+        try {
+            boolean complete = manage_table.print();
+            if (complete) {
+                // Show a success message
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Print Pomplete");
+            } else {
+                // Printing was canceled
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Printing Cancelled");
+
+            }
+        } catch (PrinterException pe) {
+            // Handle the printing error
+            Notifications.getInstance().show(Notifications.Type.WARNING, "Printing Failed!");
+        }
+    }//GEN-LAST:event_print_tableActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2648,6 +2718,7 @@ public class staff_dashboard extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_btn;
+    private javax.swing.JButton add_btn1;
     private javax.swing.JComboBox<String> add_item_category;
     private javax.swing.JComboBox<String> add_item_color_option;
     private javax.swing.JEditorPane add_item_description;
@@ -2822,6 +2893,7 @@ public class staff_dashboard extends javax.swing.JFrame {
     private javax.swing.JToggleButton new_btn1;
     private javax.swing.JToggleButton prelove_btn;
     private javax.swing.JToggleButton prelove_btn1;
+    private javax.swing.JButton print_table;
     private javax.swing.JLabel profile_icon1;
     private javax.swing.JButton reset_btn;
     private javax.swing.JButton reset_btn1;

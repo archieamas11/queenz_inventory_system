@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2024 at 07:38 AM
+-- Generation Time: Nov 21, 2024 at 02:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -93,7 +93,7 @@ CREATE TABLE `tbl_items` (
 INSERT INTO `tbl_items` (`item_SKU`, `item_name`, `item_description`, `item_stocks`, `item_price`, `total_sold`, `item_condition`, `item_category`, `item_size`, `item_color`, `item_material`, `item_supplier`, `added_by`, `date_added`, `item_status`) VALUES
 (1001, 'Classic T-Shirt	', 'Good', 0, 2000, 4, 'prelove', 'Casual', 'M', 'Blue', '100% Cotton', 'A', 1, '2024-09-22 16:25:17', 'soldout'),
 (1003, 'Denim', 'Good', 2, 123, 0, 'new', 'Formal', 'L', 'Yellow', 'Polyester blend', 'B', 1, '2024-10-14 05:35:50', 'archived'),
-(1004, 'Jacket', 'Bad', 1, 435, 4, 'false', 'Activewear', 'XXL', 'Green', 'Leather', 'C', 1, '2024-10-14 05:35:57', 'available'),
+(1004, 'Jacket', 'Bad', 1, 435, 4, 'new', 'Activewear', 'XXL', 'Green', 'Leather', 'C', 1, '2024-11-21 10:34:49', 'available'),
 (1005, 'Pakigol', 'Nice', 1, 234, 10, 'new', 'Casual', 'M', 'Black', '100% Cotton', 'D', 1, '2024-10-14 05:36:06', 'available'),
 (1006, 'Panty', 'Yey', 1, 34, 0, 'new', 'Formal', 'L', 'Orange', 'Polyester blend', 'A', 1, '2024-10-14 05:36:38', 'available');
 
@@ -178,7 +178,7 @@ ALTER TABLE `tbl_invoice`
 -- AUTO_INCREMENT for table `tbl_items`
 --
 ALTER TABLE `tbl_items`
-  MODIFY `item_SKU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
+  MODIFY `item_SKU` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1019;
 
 --
 -- AUTO_INCREMENT for table `tbl_logs`
