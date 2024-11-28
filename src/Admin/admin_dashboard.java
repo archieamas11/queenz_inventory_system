@@ -106,6 +106,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
                 stock_left = rs.getInt("item_stocks");
                 if (stock_left > 1) {
                     empty_notification.setText("Empty");
+                    Notifications.getInstance().show(Notifications.Type.WARNING, "low stock count!");
                 } else {
                     empty_notification.setText("");
                 }
@@ -2673,7 +2674,7 @@ public final class admin_dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_print_table1ActionPerformed
 
     private void add_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btn1ActionPerformed
-       // Open file chooser to select Excel file
+        // Open file chooser to select Excel file
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Select Excel File");
         int userSelection = fileChooser.showOpenDialog(this);

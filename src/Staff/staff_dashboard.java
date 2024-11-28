@@ -2065,7 +2065,21 @@ public class staff_dashboard extends javax.swing.JFrame {
 
         // Notify user of successful transaction
         Notifications.getInstance().show(Notifications.Type.SUCCESS, "Item has been accepted successfully!");
+        PanelPrinter panelPrinter = new PanelPrinter(print_receipt.print_this);
 
+        print_receipt yawa = new print_receipt();
+
+        yawa.total.setText(String.valueOf("₱" + total_pay));
+        yawa.total_pay.setText(String.valueOf("₱" + total_pay));
+        yawa.cash.setText(String.valueOf("₱" + cash));
+        yawa.change.setText(String.valueOf("₱" + total_change));
+        yawa.item_name.setText(total_quantity + "x " + itemName + " ");
+        panelPrinter.printPanel();
+
+        total_pay = 0;
+        total_quantity = 0;
+        total_change = 0;
+        cash = 0;
         // Log the action
         String action = "Buy";
         String details = "User  " + user_id + " sold item " + get_item_id + " successfully!";
@@ -2073,7 +2087,6 @@ public class staff_dashboard extends javax.swing.JFrame {
 
         // Refresh stock display
         display_items.to_staff_table(staff_table);
-        tabs.setSelectedIndex(5);
     }//GEN-LAST:event_buy_now_btnActionPerformed
 
     private void materialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialActionPerformed
@@ -2664,7 +2677,7 @@ public class staff_dashboard extends javax.swing.JFrame {
         yawa.change.setText(String.valueOf("₱" + total_change));
         yawa.item_name.setText(total_quantity + "x " + itemName + " ");
         panelPrinter.printPanel();
-        
+
         total_pay = 0;
         total_quantity = 0;
         total_change = 0;
